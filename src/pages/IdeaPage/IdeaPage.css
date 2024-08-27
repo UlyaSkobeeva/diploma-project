@@ -1,0 +1,43 @@
+.head-container {
+  max-width: 840px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  /* background-color: #7a94ac; */
+}
+.done {
+  margin-right: 10px;
+}
+
+.Adone:hover {
+  cursor: pointer;
+}
+
+.left-col {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.idea-title {
+  /* background-color: aliceblue; */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 15px;
+  /* word-wrap: break-word; */
+  width: 100%;
+}
+
+.idea-done {
+  /* border: 1px solid #0d3c2a; */
+  background-color: #78ae993c;
+}
+
+.todo-container {
+  margin: 20px 0;
+  /* background-color: #ccc; */
+}

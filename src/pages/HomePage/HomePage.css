@@ -1,0 +1,500 @@
+.info {
+  padding: 20px 0 40px 0;
+  background-color: #00000007;
+  /* display: flex; */
+  /* display: inline-flex; */
+  /* height: 700px; */
+}
+
+.info__inner {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* --------------СОБЫТИЯ--------------------- */
+
+.info-calendar {
+  width: 50%;
+  /* max-height: 450px; */
+  padding: 10px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.info-calendar__logo {
+  color: #2a4359;
+  font-size: 24px;
+  text-shadow: 1px 1px 2px rgb(217, 232, 243);
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.info-calendar__list {
+  padding: 20px;
+  background-color: #2a4359;
+  border-radius: 40px;
+  color: #ffffff;
+  padding-top: 10px;
+  /* max-height: 650px; */
+}
+
+.info-calendar__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.info-calendar__date {
+  text-align: center;
+}
+
+.day {
+  font-size: 40px;
+  margin: 0px;
+}
+
+.month {
+  margin: 0px;
+}
+
+.info-calendar__text {
+  font-size: 24px;
+  margin: 0px;
+  max-width: 370px;
+  text-align: center;
+}
+
+.plus__btn {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  background-color: #688cac;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.plus__btn:hover {
+  background-color: #c4b171cf;
+  cursor: pointer;
+  /* box-shadow: 1px 1px 5px 5px #c4b071; */
+}
+
+@media (max-width: 1000px) {
+  .info__inner {
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    /* align-items: center; */
+  }
+  .info-calendar {
+    width: 90%;
+  }
+  .info-calendar__item {
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 650px) {
+  .info {
+    padding: 20px 0 20px 0;
+    background-color: #00000007;
+  }
+  .info__inner {
+  }
+  .info-calendar {
+    width: 100%;
+    padding: 0;
+    padding-bottom: 10px;
+  }
+  .info-calendar__item {
+    justify-content: space-between;
+
+    /* margin-bottom: 5px; */
+  }
+  .info-calendar__logo {
+    color: #2a4359;
+    font-size: 18px;
+    text-shadow: 1px 1px 2px rgb(217, 232, 243);
+  }
+  .info-calendar__text {
+    font-size: 16px;
+    margin: 0px;
+    /* max-width: 160px; */
+    text-align: center;
+  }
+  .day {
+    font-size: 20px;
+    margin: 0px;
+  }
+
+  .plus__btn {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    background-color: #688cac;
+    color: #ffffff;
+    text-align: center;
+  }
+}
+@media (max-width: 460px) {
+  .info-calendar__text {
+    max-width: 160px;
+  }
+}
+
+/* --------------ДНИ РОЖДЕНИЯ------------------------------------------------- */
+
+.info-age {
+  padding: 20px;
+  width: 30%;
+  max-height: 400px;
+  background-color: #2a4359;
+  border-radius: 50px;
+}
+
+@media (max-width: 1000px) {
+  .info-age {
+    width: 60%;
+  }
+}
+
+@media (max-width: 650px) {
+  .info-age {
+    width: 100%;
+  }
+}
+
+.info-age__list {
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* padding-left: 0px;
+  position: relative;
+  bottom: 0;
+  transition: bottom ease 1s; */
+  /* bottom: 30px; */
+}
+
+.info-age__logo {
+  color: #ffffff;
+}
+.info-age__item {
+  height: 320px;
+
+  text-align: center;
+  color: rgb(255, 255, 255);
+  padding: 5px 0;
+}
+.img-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+
+.info-age__img {
+  /* width: 200px;
+  border-radius: 50%; */
+}
+
+.info-age__text {
+  margin-bottom: 0px;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.info-age__year {
+  margin-bottom: 0px;
+  font-size: 18px;
+}
+
+@media (max-width: 1000px) {
+  .info-age {
+    width: 60%;
+  }
+  .info-age__img {
+    /* width: 200px; */
+  }
+}
+
+@media (max-width: 650px) {
+  .info-age {
+    width: 100%;
+  }
+  .info-age__img {
+    /* width: 150px; */
+    /* height: 100px; */
+  }
+  .info-age__logo {
+    font-size: 16px;
+  }
+  .info-age__item {
+    height: 230px;
+  }
+  .info-age__text {
+    font-size: 16px;
+  }
+  .info-age__year {
+    font-size: 16px;
+  }
+}
+
+/* 
+
+
+
+*/
+
+/* ПОДРОБНОСТИ СОБЫТИЙ */
+
+.detail-container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 20px;
+  cursor: default;
+
+  /* background-color: #2a435916; */
+
+  /* margin-top: 30px; */
+}
+
+.detail-inner {
+  border: 2px solid #2a435916;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.detail-date {
+  /* margin-bottom: 5px; */
+  width: 100px;
+  height: 100px;
+  background-color: #2a4359;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-title {
+  /* background-color: #688cac; */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  /* text-shadow: 1px 1px #558abb; */
+  color: #2a4359;
+}
+
+.detail-desc {
+  display: flex;
+  flex-direction: column;
+  /* max-width: 80%; */
+  background-color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0px;
+}
+
+.desc {
+  max-width: 70%;
+  line-height: 30px;
+  letter-spacing: 1px;
+  text-align: justify;
+}
+
+.details {
+  max-width: 70%;
+  /* line-height: 30px; */
+  letter-spacing: 1px;
+  /* text-align: justify; */
+  color: #2a4359;
+  margin-top: 20px;
+}
+
+.detail-img {
+  max-width: 400px;
+  margin: 10px 0px;
+}
+
+.detail-cancel {
+  display: flex;
+  justify-content: end;
+}
+
+@media (max-width: 650px) {
+  .detail-date {
+    /* flex-direction: row; */
+    width: 80px;
+    height: 80px;
+    /* border-radius: 20px; */
+    margin-bottom: 20px;
+  }
+  .detail-day {
+    font-size: 24px;
+  }
+  .detail-month {
+    font-size: 14px;
+  }
+  .detail-title {
+    font-size: 18px;
+  }
+  .detail-desc {
+    margin: 10px 0px;
+  }
+  .desc {
+    max-width: 90%;
+    /* line-height: 30px;
+    letter-spacing: 1px; */
+    text-align: justify;
+  }
+  .details {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .detail-img {
+    max-width: 300px;
+  }
+}
+
+/* 
+
+
+
+
+
+
+
+
+*/
+
+/* НОВОСТИ */
+.news {
+  background-color: #2a4359;
+  padding: 40px 0 40px 0;
+  /* color: #000000; */
+}
+
+.news__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+
+  /* border: 10px solid #f1f0fc; */
+}
+
+.news__logo {
+  text-align: center;
+  padding: 20px 0px 20px 0px;
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+.news__item {
+  background-color: rgb(255, 255, 255);
+  height: 270px;
+  width: calc(25% - 15px);
+  border: solid 4px #c4b071;
+
+  padding: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 80px;
+}
+
+.news__foto {
+}
+
+.picture {
+  /* border-top-left-radius: 80px; */
+  /* width: 100px; */
+  height: 100px;
+  padding-bottom: 15px;
+}
+
+.news__text {
+  text-align: center;
+}
+
+/* .news__title {
+  
+} */
+
+.news__paragraph {
+  color: #000000;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.news__link {
+  text-transform: uppercase;
+  color: #000000ba;
+}
+
+.news__link:hover {
+  color: #c4b071;
+  cursor: pointer;
+}
+
+@media (max-width: 1150px) {
+  .news__item {
+    width: calc(45% - 15px);
+  }
+}
+
+@media (max-width: 650px) {
+  .news {
+    padding: 30px 0 20px 0;
+  }
+  .news__logo {
+    padding: 0px;
+    padding-top: 10px;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .news__item {
+    height: 240px;
+    width: calc(90% - 15px);
+    margin-bottom: 0px;
+  }
+  .picture {
+    height: 70px;
+  }
+  .news__paragraph {
+    font-size: 16px;
+  }
+  .news__link {
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 450px) {
+  .news__item {
+    height: 240px;
+    width: calc(100% - 15px);
+  }
+  .news__paragraph {
+    font-size: 14px;
+  }
+}
