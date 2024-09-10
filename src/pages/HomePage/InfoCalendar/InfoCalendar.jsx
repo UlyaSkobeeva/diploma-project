@@ -2,6 +2,7 @@
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import Button from '../../../UI/Button/Button'
 
 export default function InfoCalendar(props) {
   //получение данных с сервера
@@ -28,8 +29,14 @@ export default function InfoCalendar(props) {
     navigate('/calendar/detail/' + id)
   }
 
+  //редактировать
   const LoadEdit = (id) => {
     navigate('/calendar/edit/' + id)
+  }
+
+  //создать новую
+  const CreateCalendar = () => {
+    navigate('/calendar/create')
   }
 
   //удаление
@@ -63,13 +70,7 @@ export default function InfoCalendar(props) {
       <div className="info-calendar">
         {props.user?.isAdmin && (
           <div>
-            <Link
-              className="operate-button"
-              to="/calendar/create"
-              role="button"
-            >
-              Добавить новое событие
-            </Link>
+            <Button onClick={CreateCalendar}> Добавить новое событие</Button>
           </div>
         )}
 
@@ -103,22 +104,17 @@ export default function InfoCalendar(props) {
                     </div>
 
                     {props.user?.isAdmin && (
-                      <div className="calendar-button">
-                        <a
+                      <div>
+                        <Button
                           onClick={() => {
                             LoadEdit(calendar.id)
                           }}
-                          className="operate-button"
                         >
                           Изменить
-                        </a>
-                        <a
-                          onClick={() => RemoveFunction(calendar.id)}
-                          type="button"
-                          className="operate-button"
-                        >
+                        </Button>
+                        <Button onClick={() => RemoveFunction(calendar.id)}>
                           Удалить
-                        </a>
+                        </Button>
                       </div>
                     )}
                   </div>

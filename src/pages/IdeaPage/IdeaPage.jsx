@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import './IdeaPage.css'
 import PropTypes from 'prop-types'
+import Button from '../../UI/Button/Button'
+import styles from './IdeaPage.module.css'
 
 function Idea(props) {
   const [todos, setTodos] = useState([])
@@ -131,41 +133,32 @@ function Idea(props) {
           onChange={(e) => setnameOfTask(e.target.value)}
           // onKeyUp={handleKeyPress}
         />
-        <button
-          className="operate-button"
-          style={{ width: '150px' }}
+        <Button
+          className={styles['idea-create__button']}
           onClick={() => {
             buttonText === 'добавить' ? addTodo() : editTask()
           }}
         >
           {buttonText}
-        </button>
+        </Button>
       </div>
       <hr />
       <div className="input-button-section" style={{ marginBottom: '10px' }}>
-        <a
+        <Button
+          className={styles['job__button']}
           onClick={() => handleFilter('false')}
-          className="operate-button "
-          style={{ marginRight: '10px' }}
         >
           В работе
-        </a>
-        <a
+        </Button>
+        <Button
+          className={styles['done__button']}
           onClick={() => handleFilter('true')}
-          type="button"
-          className="operate-button "
-          // style={{ backgroundColor: '#285D49' }}
-          style={{ marginRight: '10px' }}
         >
           Выполнено
-        </a>
-        <a
-          onClick={() => getTask()}
-          className="operate-button"
-          style={{ width: '75px', textAlign: 'center', marginRight: '0px' }}
-        >
+        </Button>
+        <Button className={styles['all__button']} onClick={() => getTask()}>
           ВСЕ
-        </a>
+        </Button>
       </div>
       <hr />
       <div className="todo-container">
@@ -200,15 +193,8 @@ function Idea(props) {
             {/* ДЛЯ АДМИНА */}
             {props.user?.isAdmin && (
               <div className="calendar-button">
-                <a onClick={() => getEdit(todo.id)} className="operate-button">
-                  Изменить
-                </a>
-                <a
-                  onClick={() => deleteTask(todo.id)}
-                  className="operate-button"
-                >
-                  удалить
-                </a>
+                <Button onClick={() => getEdit(todo.id)}>Изменить</Button>
+                <Button onClick={() => deleteTask(todo.id)}>удалить</Button>
                 {todo.isDone === true ? (
                   <>
                     <button

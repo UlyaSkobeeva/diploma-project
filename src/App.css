@@ -120,29 +120,6 @@ main {
   background-color: #374b5f;
 }
 
-/* Кнопки добавить, редактировать, удалить */
-.operate-button {
-  background-color: #2a4359;
-  color: #f1f0fc;
-  /* width: 100px; */
-  /* display: flex;
-  justify-content: center; */
-  margin-right: 20px;
-  margin-top: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  padding: 5px;
-  text-transform: uppercase;
-  font-size: 14px;
-  font-family: 'Karla', sans-serif;
-  border: 1px solid black;
-}
-
-.operate-button:hover {
-  color: #edd37e;
-  background-color: #374b5f;
-}
-
 @media (max-width: 650px) {
   .input-logo {
     font-size: 16px;

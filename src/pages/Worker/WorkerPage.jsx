@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import './WorkerPage.css'
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import Button from '../../UI/Button/Button'
 
 export default function Worker(props) {
   //получение данных с сервера
@@ -63,6 +64,10 @@ export default function Worker(props) {
     )
   }
 
+  const CreateWorker = () => {
+    navigate('/worker/create')
+  }
+
   return (
     <>
       <div className="find">
@@ -87,10 +92,7 @@ export default function Worker(props) {
 
       {props.user?.isAdmin && (
         <div className="container ">
-          <Link className="operate-button" to="/worker/create" role="button">
-            Добавить нового сотрудника
-          </Link>
-          {/* <button onClick={getWorker}>Обновить</button> */}
+          <Button onClick={CreateWorker}>Добавить нового сотрудника</Button>
         </div>
       )}
 
@@ -115,19 +117,12 @@ export default function Worker(props) {
 
                       {props.user?.isAdmin && (
                         <>
-                          <a
-                            onClick={() => LoadEdit(work.id)}
-                            className="operate-button"
-                          >
+                          <Button onClick={() => LoadEdit(work.id)}>
                             Изменить
-                          </a>
-                          <a
-                            onClick={() => RemoveFunction(work.id)}
-                            type="button"
-                            className="operate-button"
-                          >
+                          </Button>
+                          <Button onClick={() => RemoveFunction(work.id)}>
                             Удалить
-                          </a>
+                          </Button>
                         </>
                       )}
                     </div>

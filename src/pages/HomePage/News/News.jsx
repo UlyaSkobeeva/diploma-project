@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import Button from '../../../UI/Button/Button'
+import styles from './News.module.css'
+
 export default function News(props) {
   //получение данных с сервера
   const [news, setNews] = useState(null)
@@ -47,19 +50,21 @@ export default function News(props) {
     }
   }
 
+  const CreateNews = () => {
+    navigate('/news/create')
+  }
+
   return (
     <div className="news">
       <div className="container">
         {props.user?.isAdmin && (
           <div>
-            <Link
-              style={{ marginBottom: '10px' }}
-              className="operate-button"
-              to="/news/create"
-              role="button"
+            <Button
+              className={styles['news-create__button']}
+              onClick={CreateNews}
             >
               Добавить новую новость
-            </Link>
+            </Button>
           </div>
         )}
 
@@ -87,21 +92,20 @@ export default function News(props) {
 
                   {props.user?.isAdmin && (
                     <div className="input-button-section">
-                      <a
+                      <Button
+                        className={styles['news-controls__button']}
                         onClick={() => {
                           LoadEdit(newElem.id)
                         }}
-                        className="operate-button"
                       >
                         Изменить
-                      </a>
-                      <a
+                      </Button>
+                      <Button
+                        className={styles['news-controls__button']}
                         onClick={() => RemoveFunction(newElem.id)}
-                        type="button"
-                        className="operate-button"
                       >
                         Удалить
-                      </a>
+                      </Button>
                     </div>
                   )}
                 </div>

@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useEffect } from 'react'
 import './Admin.css'
+import Button from '../../UI/Button/Button'
+import styles from './Admin.module.css'
 
 export default function Admin() {
   const [users, setUsers] = useState([])
@@ -134,16 +136,14 @@ export default function Admin() {
           onChange={(e) => setPas(e.target.value)}
           // onKeyUp={handleKeyPress}
         />
-        <button
-          className="operate-button"
-          style={{ width: '150px' }}
+        <Button
+          className={styles['admin-create__button']}
           onClick={() => {
             buttonText === 'добавить' ? addUser() : editUser()
-            // editUser()
           }}
         >
           {buttonText}
-        </button>
+        </Button>
       </div>
 
       {users.map((user) => (
@@ -174,18 +174,8 @@ export default function Admin() {
                   <p>роль: администратор</p>
                 </div>
                 <div className="calendar-button">
-                  <a
-                    onClick={() => getEdit(user.id)}
-                    className="operate-button"
-                  >
-                    Изменить
-                  </a>
-                  <a
-                    onClick={() => deleteUser(user.id)}
-                    className="operate-button"
-                  >
-                    удалить
-                  </a>
+                  <Button onClick={() => getEdit(user.id)}>Изменить</Button>
+                  <Button onClick={() => deleteUser(user.id)}>удалить</Button>
                 </div>
               </div>
             </>
@@ -215,18 +205,18 @@ export default function Admin() {
                   <p>роль: пользователь</p>
                 </div>
                 <div className="calendar-button">
-                  <a
+                  <Button
                     onClick={() => getEdit(user.id)}
                     className="operate-button"
                   >
                     Изменить
-                  </a>
-                  <a
+                  </Button>
+                  <Button
                     onClick={() => deleteUser(user.id)}
                     className="operate-button"
                   >
                     удалить
-                  </a>
+                  </Button>
                 </div>
               </div>
             </>
