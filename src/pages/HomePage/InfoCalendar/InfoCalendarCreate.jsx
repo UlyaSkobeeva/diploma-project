@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import styles from './InfoCalendarCreate.module.css'
 import Input from '../../../UI/Input/Input'
 import Textarea from '../../../UI/Textarea/Texrarea'
-import { optionsMonth } from '../../../shared/constants/optionsMonth' //для выпадющего списка (label, value)
+import { optionMonth } from '../../../shared/constants/optionMonth' //для выпадющего списка (label, value)
+import Select from '../../../UI/Select/Select'
 
 export default function CalendarCreate() {
   let currentMonth = new Date().toLocaleString('ru', { month: 'long' }) //текущий месяц
@@ -93,27 +94,12 @@ export default function CalendarCreate() {
           )}
         </Input>
 
-        {/* select */}
-        <div className="input-elem">
-          <label>Месяц</label>
-          <select
-            value={month}
-            onChange={monthChangeHandler}
-            name=""
-            id=""
-            className="input-inp"
-          >
-            {optionsMonth.map((option) => (
-              <option
-                className="input-option"
-                value={option.value}
-                key={option.value}
-              >
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
+        <Select
+          label="Месяц"
+          value={month}
+          onChange={monthChangeHandler}
+          optionMonth={optionMonth}
+        />
 
         <Input
           label="Заголовок"

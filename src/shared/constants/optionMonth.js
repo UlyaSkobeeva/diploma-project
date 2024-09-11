@@ -1,4 +1,4 @@
-export const optionsMonth = [
+export const optionMonth = [
   { label: 'январь', value: 'январь' },
   { label: 'февраль', value: 'февраль' },
   { label: 'март', value: 'март' },

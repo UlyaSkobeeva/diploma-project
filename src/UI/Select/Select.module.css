@@ -1,0 +1,13 @@
+.element__select {
+  margin-bottom: 16px;
+}
+
+.element__select select {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px 16px;
+  width: 100%;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-size: 16px;
+}
