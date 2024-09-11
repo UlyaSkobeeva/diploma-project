@@ -103,8 +103,7 @@ main {
   background-color: #2a4359;
   color: #f1f0fc;
   width: 110px;
-  display: flex;
-  justify-content: center;
+  text-align: center;
   margin-right: 20px;
   cursor: pointer;
   border-radius: 5px;

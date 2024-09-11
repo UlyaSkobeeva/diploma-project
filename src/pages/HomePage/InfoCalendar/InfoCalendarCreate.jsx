@@ -6,6 +6,8 @@ import Textarea from '../../../UI/Textarea/Texrarea'
 import { optionMonth } from '../../../shared/constants/optionMonth' //для выпадющего списка (label, value)
 import Select from '../../../UI/Select/Select'
 import CardContainer from '../../../UI/CardContainer/CardContainer'
+import CardContainerControls from '../../../UI/CardContainerControls/CardContainerControls'
+import ControlButton from '../../../UI/CardContainerControls/ControlButton'
 
 export default function CalendarCreate() {
   let currentMonth = new Date().toLocaleString('ru', { month: 'long' }) //текущий месяц
@@ -15,6 +17,8 @@ export default function CalendarCreate() {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [details, setDetails] = useState('')
+
+  const navigate = useNavigate()
 
   //получить значение дня
   const dayChangeHandler = (event) => {
@@ -54,7 +58,10 @@ export default function CalendarCreate() {
     setValidTitle(false)
   }
 
-  const navigate = useNavigate()
+  //отмена отправки
+  const cancelFormHandler = () => {
+    navigate('/')
+  }
 
   //отправить форму
   const submitHandler = (event) => {
@@ -128,14 +135,10 @@ export default function CalendarCreate() {
         />
 
         {/* КНОПКИ */}
-        <div className="input-button-section">
-          <button type="submit" className="input-button">
-            Добавить
-          </button>
-          <Link to="/" className="input-button">
-            Отмена
-          </Link>
-        </div>
+        <CardContainerControls>
+          <ControlButton type="submit">Добавить</ControlButton>
+          <ControlButton onClick={cancelFormHandler}>Отмена</ControlButton>
+        </CardContainerControls>
       </form>
     </CardContainer>
   )
