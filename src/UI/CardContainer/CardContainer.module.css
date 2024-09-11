@@ -13,3 +13,9 @@
   color: #2a4359;
   margin-bottom: 10px;
 }
+
+@media (max-width: 650px) {
+  .card-container h2 {
+    font-size: 16px;
+  }
+}
