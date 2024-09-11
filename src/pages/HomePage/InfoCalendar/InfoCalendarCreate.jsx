@@ -5,6 +5,7 @@ import Input from '../../../UI/Input/Input'
 import Textarea from '../../../UI/Textarea/Texrarea'
 import { optionMonth } from '../../../shared/constants/optionMonth' //для выпадющего списка (label, value)
 import Select from '../../../UI/Select/Select'
+import CardContainer from '../../../UI/CardContainer/CardContainer'
 
 export default function CalendarCreate() {
   let currentMonth = new Date().toLocaleString('ru', { month: 'long' }) //текущий месяц
@@ -75,8 +76,7 @@ export default function CalendarCreate() {
   }
 
   return (
-    <div className="input-container">
-      <h2 className="input-logo">Добавить новое событие</h2>
+    <CardContainer logo="Добавить новое событие">
       <form onSubmit={submitHandler}>
         <Input
           label="Число"
@@ -137,6 +137,6 @@ export default function CalendarCreate() {
           </Link>
         </div>
       </form>
-    </div>
+    </CardContainer>
   )
 }

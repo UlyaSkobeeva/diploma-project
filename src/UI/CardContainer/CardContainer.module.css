@@ -1,0 +1,15 @@
+.card-container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  cursor: default;
+}
+
+.card-container h2 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #2a4359;
+  margin-bottom: 10px;
+}
