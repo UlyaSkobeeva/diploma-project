@@ -1,0 +1,14 @@
+.element__input {
+  margin-bottom: 16px;
+}
+
+.element__input input {
+  border: 1px solid #ccc;
+  border: 1px solid #eb6a6a;
+  border-radius: 5px;
+  padding: 8px 16px;
+  width: 100%;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-size: 16px;
+}

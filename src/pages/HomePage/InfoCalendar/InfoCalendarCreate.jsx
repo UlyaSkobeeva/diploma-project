@@ -1,29 +1,65 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import Input from '../../../UI/Input/Input'
 
 export default function CalendarCreate() {
-  const [id, idchange] = useState('')
-  let curMonth = new Date().toLocaleString('ru', { month: 'long' }) //месяц (июнь)
-  const [day, daychange] = useState('')
-  const [month, monthchange] = useState(curMonth)
-  const [title, titlechange] = useState('')
-  const [desc, descchange] = useState('')
-  const [details, detailschange] = useState('')
+  let currentMonth = new Date().toLocaleString('ru', { month: 'long' }) //текущий месяц
+
+  const [day, setDay] = useState('')
+  const [month, setMonth] = useState(currentMonth)
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const [details, setDetails] = useState('')
+
+  //получить значение дня
+  const dayChangeHandler = (event) => {
+    setDay(Number(event.target.value))
+  }
+
+  //значение месяца
+  const monthChangeHandler = (event) => {
+    setMonth(event.target.value)
+  }
+
+  //заголовок
+  const titleChangeHandler = (event) => {
+    setTitle(event.target.value)
+  }
+
+  //описание
+  const descriptionChangeHandler = (event) => {
+    setDescription(event.target.value)
+  }
+
+  //доп. информация
+  const detailsChangeHandler = (event) => {
+    setDetails(event.target.value)
+  }
 
   //подсветить красным если ничего нет
-  const [vald, valdchange] = useState(false)
-  const [valt, valtchange] = useState(false)
+  const [validDay, setValidDay] = useState(true)
+  const [validTitle, setValidTitle] = useState(true)
+
+  //если нет описания
+  const validDayChangeHandler = () => {
+    setValidDay(false)
+  }
+
+  const validTitleChangeHandler = () => {
+    setValidTitle(false)
+  }
 
   const navigate = useNavigate()
 
-  const handlesubmit = (e) => {
-    e.preventDefault()
-    const calendardata = { day, month, title, desc, details }
+  //отправить форму
+  const submitHandler = (event) => {
+    event.preventDefault()
+    const calendarData = { day, month, title, description, details }
 
     fetch('/api/calendar', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(calendardata),
+      body: JSON.stringify(calendarData),
     })
       .then((res) => {
         alert('Информация о новом событии успешно добавлена!')
@@ -53,33 +89,29 @@ export default function CalendarCreate() {
   return (
     <div className="input-container">
       <h2 className="input-logo">Добавить новое событие</h2>
-      <form onSubmit={handlesubmit}>
-        {/* <div >
-                <label >id</label>
-                <input  value={id} disabled="disabled"  className="input-component"/>          
-            </div> */}
-        <div className="input-elem">
-          <label>Число</label>
-          <input
-            type="number"
-            min="1"
-            max="31"
-            value={day}
-            onChange={(e) => daychange(Number(e.target.value))}
-            className="input-inp"
-            placeholder="1"
-            onMouseDown={() => valdchange(true)}
-            required
-          />
-          {day.length == 0 && vald && (
+      <form onSubmit={submitHandler}>
+        <Input
+          label="Число"
+          type="number"
+          min="1"
+          max="31"
+          value={day}
+          onChange={dayChangeHandler}
+          placeholder="1"
+          onMouseDown={validDayChangeHandler}
+          required={true}
+        >
+          {day.length == 0 && !validDay && (
             <span className="label-danger"> * Введите число</span>
           )}
-        </div>
+        </Input>
+
+        {/* select */}
         <div className="input-elem">
           <label>Месяц</label>
           <select
             value={month}
-            onChange={(e) => monthchange(e.target.value)}
+            onChange={monthChangeHandler}
             name=""
             id=""
             className="input-inp"
@@ -90,60 +122,47 @@ export default function CalendarCreate() {
                 value={option.value}
                 key={option.value}
               >
-                {' '}
                 {option.label}
               </option>
             ))}
-
-            {/* <option value="январь">январь</option>
-                    <option value="февраль">февраль</option>
-                    <option value="март">март</option>
-                    <option value="апрель">апрель</option>
-                    <option value="май">май</option>
-                    <option value="июнь">июнь</option>
-                    <option value="июль">июль</option>
-                    <option value="август">август</option>
-                    <option value="сентябрь">сентябрь</option>
-                    <option value="октябрь">октябрь</option>
-                    <option value="ноябрь">ноябрь</option>
-                    <option value="декабрь">декабрь</option> */}
           </select>
-          {/* <input  value={month}  onChange={e=>monthchange(e.target.value)} className="input-inp" placeholder="январь"/> */}
         </div>
-        <div className="input-elem">
-          <label>Заголовок</label>
-          <input
-            value={title}
-            onChange={(e) => titlechange(e.target.value)}
-            className="input-inp"
-            required
-            onMouseDown={() => valtchange(true)}
-          />
-          {title.length == 0 && valt && (
+
+        <Input
+          label="Заголовок"
+          value={title}
+          onChange={titleChangeHandler}
+          required={true}
+          onMouseDown={validTitleChangeHandler}
+        >
+          {title.length == 0 && !validTitle && (
             <span className="label-danger"> * Введите заголовок</span>
           )}
-        </div>
+        </Input>
+
+        {/* textarea */}
         <div className="input-elem">
           <label>Описание</label>
           <textarea
-            value={desc}
-            onChange={(e) => descchange(e.target.value)}
+            value={description}
+            onChange={descriptionChangeHandler}
             style={{ height: '100px' }}
             className="input-inp"
-          ></textarea>
-          {/* <input style={{height: "60px", wordWrap: "break-word"}}className="input-inp" /> */}
+          />
         </div>
+
+        {/* textarea */}
         <div className="input-elem">
           <label>Дополнительная информация</label>
           <textarea
             value={details}
-            onChange={(e) => detailschange(e.target.value)}
+            onChange={detailsChangeHandler}
             style={{ height: '80px' }}
             className="input-inp"
-          ></textarea>
-          {/* <input style={{height: "60px", wordWrap: "break-word"}}className="input-inp" /> */}
+          />
         </div>
 
+        {/* КНОПКИ */}
         <div className="input-button-section">
           <button type="submit" className="input-button">
             Добавить

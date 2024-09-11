@@ -30,7 +30,7 @@ export default function CalendarDetail() {
             </div>
             <h2 className="detail-title">{calendars.title}</h2>
             <div className="detail-desc">
-              <div className="desc">{calendars.desc}</div>
+              <div className="desc">{calendars.description}</div>
               <div className="details">{calendars.details}</div>
             </div>
             <div className="detail-cancel">

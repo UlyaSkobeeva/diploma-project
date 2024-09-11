@@ -15,7 +15,7 @@ export default function CalendarEdit() {
         daychange(resp.day)
         monthchange(resp.month)
         titlechange(resp.title)
-        descchange(resp.desc)
+        descchange(resp.description)
         detailschange(resp.details)
       })
       .catch((err) => {
@@ -27,7 +27,7 @@ export default function CalendarEdit() {
   const [day, daychange] = useState('')
   const [month, monthchange] = useState('')
   const [title, titlechange] = useState('')
-  const [desc, descchange] = useState('')
+  const [description, descchange] = useState('')
   const [details, detailschange] = useState('')
 
   //подсветить красным если ничего нет
@@ -37,7 +37,7 @@ export default function CalendarEdit() {
 
   const handlesubmit = (e) => {
     e.preventDefault()
-    const calendardata = { day, month, title, desc, details }
+    const calendardata = { day, month, title, description, details }
 
     fetch('/api/calendar/' + calenid, {
       method: 'PUT',
@@ -145,7 +145,7 @@ export default function CalendarEdit() {
         <div className="input-elem">
           <label>Описание</label>
           <textarea
-            value={desc}
+            value={description}
             onChange={(e) => descchange(e.target.value)}
             style={{ height: '100px' }}
             className="input-inp"
