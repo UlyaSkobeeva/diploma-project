@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import styles from './InfoCalendarCreate.module.css'
 import Input from '../../../UI/Input/Input'
+import Textarea from '../../../UI/Textarea/Texrarea'
+import { optionsMonth } from '../../../shared/constants/optionsMonth' //для выпадющего списка (label, value)
 
 export default function CalendarCreate() {
   let currentMonth = new Date().toLocaleString('ru', { month: 'long' }) //текущий месяц
@@ -70,22 +73,6 @@ export default function CalendarCreate() {
       })
   }
 
-  //выпадающий список
-  const options = [
-    { label: 'январь', value: 'январь' },
-    { label: 'февраль', value: 'февраль' },
-    { label: 'март', value: 'март' },
-    { label: 'апрель', value: 'апрель' },
-    { label: 'май', value: 'май' },
-    { label: 'июнь', value: 'июнь' },
-    { label: 'июль', value: 'июль' },
-    { label: 'август', value: 'август' },
-    { label: 'сентябрь', value: 'сентябрь' },
-    { label: 'октябрь', value: 'октябрь' },
-    { label: 'ноябрь', value: 'ноябрь' },
-    { label: 'декабрь', value: 'декабрь' },
-  ]
-
   return (
     <div className="input-container">
       <h2 className="input-logo">Добавить новое событие</h2>
@@ -116,7 +103,7 @@ export default function CalendarCreate() {
             id=""
             className="input-inp"
           >
-            {options.map((option) => (
+            {optionsMonth.map((option) => (
               <option
                 className="input-option"
                 value={option.value}
@@ -140,27 +127,19 @@ export default function CalendarCreate() {
           )}
         </Input>
 
-        {/* textarea */}
-        <div className="input-elem">
-          <label>Описание</label>
-          <textarea
-            value={description}
-            onChange={descriptionChangeHandler}
-            style={{ height: '100px' }}
-            className="input-inp"
-          />
-        </div>
+        <Textarea
+          className={styles['description__textarea']}
+          label="Описание"
+          value={description}
+          onChange={descriptionChangeHandler}
+        />
 
-        {/* textarea */}
-        <div className="input-elem">
-          <label>Дополнительная информация</label>
-          <textarea
-            value={details}
-            onChange={detailsChangeHandler}
-            style={{ height: '80px' }}
-            className="input-inp"
-          />
-        </div>
+        <Textarea
+          className={styles['details__textarea']}
+          label="Дополнительная информация"
+          value={details}
+          onChange={detailsChangeHandler}
+        />
 
         {/* КНОПКИ */}
         <div className="input-button-section">
