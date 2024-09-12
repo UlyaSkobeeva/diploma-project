@@ -1,7 +1,7 @@
 // Ближайшие события
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Button from '../../../UI/Button/Button'
 import InfoCalendarList from './InfoCalendarList'
 
