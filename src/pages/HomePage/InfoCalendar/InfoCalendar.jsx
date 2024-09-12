@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from '../../../UI/Button/Button'
 import InfoCalendarList from './InfoCalendarList'
+import styles from './InfoCalendar.module.css'
+import Logo from '../../../UI/Logo/Logo'
 
 export default function InfoCalendar(props) {
   //получение данных с сервера
@@ -79,14 +81,12 @@ export default function InfoCalendar(props) {
 
   return (
     <>
-      <div className="info-calendar">
+      <div className={styles['info-calendar']}>
         {props.user?.isAdmin && (
-          <div>
-            <Button onClick={CreateCalendar}> Добавить новое событие</Button>
-          </div>
+          <Button onClick={CreateCalendar}> Добавить новое событие</Button>
         )}
 
-        <div className="info-calendar__logo logo">Ближайшие события</div>
+        <Logo className={styles['info-calendar__logo']}>Ближайшие события</Logo>
 
         <InfoCalendarList
           onClickDetail={LoadDetail}
