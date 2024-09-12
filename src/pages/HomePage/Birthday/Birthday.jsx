@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import Logo from '../../../UI/Logo/Logo'
 
 export default function Birthday() {
   //получение данных с сервера
@@ -42,7 +43,7 @@ export default function Birthday() {
 
   return (
     <>
-      <div className="info-age__logo logo">Дни рождения</div>
+      <Logo className="info-age__logo">Дни рождения</Logo>
       <div className="slider">
         <ul className="info-age__list" id="age__list">
           <Slider {...settings}>

@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Button from '../../../UI/Button/Button'
 import styles from './News.module.css'
+import Logo from '../../../UI/Logo/Logo'
 
 export default function News(props) {
   //получение данных с сервера
@@ -68,7 +69,7 @@ export default function News(props) {
           </div>
         )}
 
-        <div className="news__logo logo">Последние новости</div>
+        <Logo className="news__logo">Последние новости</Logo>
 
         <div className="news__inner">
           {news &&
