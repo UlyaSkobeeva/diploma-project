@@ -10,18 +10,22 @@ export default function InfoCalendar(props) {
 
   const navigate = useNavigate()
 
-  //получение данных с сервера
-  useEffect(() => {
+  //получить данные с сервера
+  const getCalendarData = () => {
     fetch('/api/calendar?_sort=month,day&_order=desc,asc')
-      .then((res) => {
-        return res.json()
+      .then((response) => {
+        return response.json()
       })
-      .then((resp) => {
-        setCalendars(resp)
+      .then((calendarData) => {
+        setCalendars(calendarData)
       })
       .catch((err) => {
         console.log(err.message)
       })
+  }
+
+  useEffect(() => {
+    getCalendarData()
   }, [])
 
   // подробности
@@ -45,9 +49,8 @@ export default function InfoCalendar(props) {
       fetch('/api/calendar/' + id, {
         method: 'DELETE',
       })
-        .then((res) => {
-          // alert("Данные были удалены")
-          window.location.reload()
+        .then(() => {
+          getCalendarData()
         })
         .catch((err) => {
           console.log(err.message)
