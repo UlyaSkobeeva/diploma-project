@@ -6,7 +6,7 @@ import Button from '../../../UI/Button/Button'
 
 export default function InfoCalendar(props) {
   //получение данных с сервера
-  const [calendars, setCalendars] = useState(null)
+  const [calendars, setCalendars] = useState([])
 
   const navigate = useNavigate()
 
@@ -67,7 +67,15 @@ export default function InfoCalendar(props) {
 
   let curday = new Date().getDate() //день
 
-  // console.log(props)
+  //отфильтрованный массив дат (за месяц)
+  const filteredCalendars = calendars.filter((calendar) => {
+    return (
+      // условие для вывода дат
+      (curday <= calendar.day && curMonth == calendar.month) ||
+      (curday >= calendar.day && futureMonth == calendar.month)
+    )
+  })
+
   return (
     <>
       <div className="info-calendar">
@@ -80,49 +88,41 @@ export default function InfoCalendar(props) {
         <div className="info-calendar__logo logo">Ближайшие события</div>
 
         <div className="info-calendar__list">
-          {/*Выводим данные с сервера  */}
-          {calendars &&
-            calendars.map((calendar) => {
-              // условие для вывода дат
-              if (
-                (curday <= calendar.day && curMonth == calendar.month) ||
-                (curday >= calendar.day && futureMonth == calendar.month)
-              )
-                return (
-                  <div key={calendar.id}>
-                    <div className="info-calendar__item">
-                      <div className="info-calendar__date">
-                        <p className="day">{calendar.day}</p>
-                        <p className="month">{calendar.month}</p>
-                      </div>
-                      <p className="info-calendar__text">{calendar.title}</p>
-                      <a
-                        onClick={() => {
-                          LoadDetail(calendar.id)
-                        }}
-                        className="plus__btn"
-                      >
-                        +
-                      </a>
-                    </div>
+          {/* вывод отфильтрованного массива */}
+          {filteredCalendars.map((calendar) => (
+            <div key={calendar.id}>
+              <div className="info-calendar__item">
+                <div className="info-calendar__date">
+                  <p className="day">{calendar.day}</p>
+                  <p className="month">{calendar.month}</p>
+                </div>
+                <p className="info-calendar__text">{calendar.title}</p>
+                <a
+                  onClick={() => {
+                    LoadDetail(calendar.id)
+                  }}
+                  className="plus__btn"
+                >
+                  +
+                </a>
+              </div>
 
-                    {props.user?.isAdmin && (
-                      <div>
-                        <Button
-                          onClick={() => {
-                            LoadEdit(calendar.id)
-                          }}
-                        >
-                          Изменить
-                        </Button>
-                        <Button onClick={() => RemoveFunction(calendar.id)}>
-                          Удалить
-                        </Button>
-                      </div>
-                    )}
-                  </div>
-                )
-            })}
+              {props.user?.isAdmin && (
+                <div>
+                  <Button
+                    onClick={() => {
+                      LoadEdit(calendar.id)
+                    }}
+                  >
+                    Изменить
+                  </Button>
+                  <Button onClick={() => RemoveFunction(calendar.id)}>
+                    Удалить
+                  </Button>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </>
