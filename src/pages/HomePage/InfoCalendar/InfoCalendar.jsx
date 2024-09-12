@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Button from '../../../UI/Button/Button'
+import InfoCalendarList from './InfoCalendarList'
 
 export default function InfoCalendar(props) {
   //получение данных с сервера
@@ -87,43 +88,13 @@ export default function InfoCalendar(props) {
 
         <div className="info-calendar__logo logo">Ближайшие события</div>
 
-        <div className="info-calendar__list">
-          {/* вывод отфильтрованного массива */}
-          {filteredCalendars.map((calendar) => (
-            <div key={calendar.id}>
-              <div className="info-calendar__item">
-                <div className="info-calendar__date">
-                  <p className="day">{calendar.day}</p>
-                  <p className="month">{calendar.month}</p>
-                </div>
-                <p className="info-calendar__text">{calendar.title}</p>
-                <a
-                  onClick={() => {
-                    LoadDetail(calendar.id)
-                  }}
-                  className="plus__btn"
-                >
-                  +
-                </a>
-              </div>
-
-              {props.user?.isAdmin && (
-                <div>
-                  <Button
-                    onClick={() => {
-                      LoadEdit(calendar.id)
-                    }}
-                  >
-                    Изменить
-                  </Button>
-                  <Button onClick={() => RemoveFunction(calendar.id)}>
-                    Удалить
-                  </Button>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+        <InfoCalendarList
+          onClickDetail={LoadDetail}
+          onClickEdit={LoadEdit}
+          onClickRemove={RemoveFunction}
+          filteredCalendars={filteredCalendars}
+          user={props.user}
+        />
       </div>
     </>
   )
