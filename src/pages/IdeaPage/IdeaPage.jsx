@@ -10,6 +10,17 @@ function Idea(props) {
   const [editId, setEditId] = useState('')
   const [buttonText, setbuttonText] = useState('добавить')
 
+  //получить с сервера
+  const getTask = async () => {
+    await fetch('/api/idea?_sort=id&_order=desc')
+      .then((res) => res.json())
+      .then((data) => setTodos(data))
+  }
+
+  useEffect(() => {
+    getTask()
+  }, [])
+
   // добавить
   const addTodo = async () => {
     if (nameOfTask === '') {
@@ -90,23 +101,6 @@ function Idea(props) {
     getTask()
   }
 
-  // const handleKeyPress = (e) => {
-  //   if (e.keyCode === 13) {
-  //     addTodo()
-  //   }
-  // }
-
-  //получить с сервера
-  const getTask = async () => {
-    await fetch('/api/idea?_sort=id&_order=desc')
-      .then((res) => res.json())
-      .then((data) => setTodos(data))
-  }
-
-  useEffect(() => {
-    getTask()
-  }, [])
-
   const handleFilter = async (value) => {
     await fetch(`/api/idea?isDone=${value}`)
       .then((res) => res.json())
@@ -131,7 +125,6 @@ function Idea(props) {
           className="input-inp"
           value={nameOfTask}
           onChange={(e) => setnameOfTask(e.target.value)}
-          // onKeyUp={handleKeyPress}
         />
         <Button
           className={styles['idea-create__button']}
@@ -165,29 +158,16 @@ function Idea(props) {
         {todos.map((todo) => (
           <div key={todo.id} className="todo-list">
             <div className="left-col">
-              {todo.isDone === true ? (
-                <>
-                  <button
-                    className="done "
-                    value={todo.id}
-                    // onClick={(e) => checkTask(e.target.value)}
-                  >
-                    ✅
-                  </button>
-                  <p className="idea-title idea-done">{todo.nameOfTask}</p>
-                </>
-              ) : (
-                <>
-                  <button
-                    className="done "
-                    value={todo.id}
-                    // onClick={(e) => checkTask(e.target.value)}
-                  >
-                    🕘
-                  </button>
-                  <p className="idea-title">{todo.nameOfTask}</p>
-                </>
-              )}
+              <button
+                className={`done ${props.user?.isAdmin && 'admin__button'}`}
+                onClick={() => checkTask(todo.id)}
+                disabled={props.user?.isAdmin === true ? false : true}
+              >
+                {todo.isDone === true ? '✅' : '🕘'}
+              </button>
+              <p className={`idea-title ${todo.isDone && 'idea-done'} `}>
+                {todo.nameOfTask}
+              </p>
             </div>
 
             {/* ДЛЯ АДМИНА */}
@@ -195,27 +175,6 @@ function Idea(props) {
               <div className="calendar-button">
                 <Button onClick={() => getEdit(todo.id)}>Изменить</Button>
                 <Button onClick={() => deleteTask(todo.id)}>удалить</Button>
-                {todo.isDone === true ? (
-                  <>
-                    <button
-                      className="done Adone"
-                      value={todo.id}
-                      onClick={(e) => checkTask(e.target.value)}
-                    >
-                      ✅
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <button
-                      className="done Adone"
-                      value={todo.id}
-                      onClick={(e) => checkTask(e.target.value)}
-                    >
-                      🕘
-                    </button>
-                  </>
-                )}
               </div>
             )}
           </div>
