@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Button from '../../../UI/Button/Button'
 import styles from './News.module.css'
@@ -7,22 +7,26 @@ import Logo from '../../../UI/Logo/Logo'
 
 export default function News(props) {
   //получение данных с сервера
-  const [news, setNews] = useState(null)
+  const [news, setNews] = useState([])
 
   const navigate = useNavigate()
 
   //получение данных с сервера
-  useEffect(() => {
+  const getNewsData = () => {
     fetch('/api/news?_sort=id&_order=desc')
-      .then((res) => {
-        return res.json()
+      .then((response) => {
+        return response.json()
       })
-      .then((resp) => {
-        setNews(resp)
+      .then((newsData) => {
+        setNews(newsData)
       })
       .catch((err) => {
         console.log(err.message)
       })
+  }
+
+  useEffect(() => {
+    getNewsData()
   }, [])
 
   // подробности
@@ -41,9 +45,8 @@ export default function News(props) {
       fetch('/api/news/' + id, {
         method: 'DELETE',
       })
-        .then((res) => {
-          // alert("Данные были удалены")
-          window.location.reload()
+        .then(() => {
+          getNewsData()
         })
         .catch((err) => {
           console.log(err.message)
@@ -59,59 +62,54 @@ export default function News(props) {
     <div className="news">
       <div className="container">
         {props.user?.isAdmin && (
-          <div>
-            <Button
-              className={styles['news-create__button']}
-              onClick={CreateNews}
-            >
-              Добавить новую новость
-            </Button>
-          </div>
+          <Button
+            className={styles['news-create__button']}
+            onClick={CreateNews}
+          >
+            Добавить новую новость
+          </Button>
         )}
 
         <Logo className="news__logo">Последние новости</Logo>
 
         <div className="news__inner">
-          {news &&
-            news.map((newElem) => {
-              return (
-                <div className="news__item" key={newElem.id}>
-                  <div className="news__foto">
-                    <img className="picture" src={newElem.smallImg} alt="" />
-                  </div>
-                  <div className="news__text">
-                    <p className="news__paragraph">{newElem.smallTitle}</p>
-                    <a
-                      onClick={() => {
-                        LoadDetail(newElem.id)
-                      }}
-                      className="news__link"
-                    >
-                      Читать больше →
-                    </a>
-                  </div>
+          {news.map((newElem) => (
+            <div className="news__item" key={newElem.id}>
+              <div className="news__foto">
+                <img className="picture" src={newElem.smallImg} alt="" />
+              </div>
+              <div className="news__text">
+                <p className="news__paragraph">{newElem.smallTitle}</p>
+                <a
+                  onClick={() => {
+                    LoadDetail(newElem.id)
+                  }}
+                  className="news__link"
+                >
+                  Читать больше →
+                </a>
+              </div>
 
-                  {props.user?.isAdmin && (
-                    <div className="input-button-section">
-                      <Button
-                        className={styles['news-controls__button']}
-                        onClick={() => {
-                          LoadEdit(newElem.id)
-                        }}
-                      >
-                        Изменить
-                      </Button>
-                      <Button
-                        className={styles['news-controls__button']}
-                        onClick={() => RemoveFunction(newElem.id)}
-                      >
-                        Удалить
-                      </Button>
-                    </div>
-                  )}
+              {props.user?.isAdmin && (
+                <div className="input-button-section">
+                  <Button
+                    className={styles['news-controls__button']}
+                    onClick={() => {
+                      LoadEdit(newElem.id)
+                    }}
+                  >
+                    Изменить
+                  </Button>
+                  <Button
+                    className={styles['news-controls__button']}
+                    onClick={() => RemoveFunction(newElem.id)}
+                  >
+                    Удалить
+                  </Button>
                 </div>
-              )
-            })}
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </div>
