@@ -60,7 +60,7 @@ export default function News(props) {
   }
 
   return (
-    <div className="news">
+    <div className={styles.news}>
       <div className="container">
         {props.user?.isAdmin && (
           <Button
@@ -71,7 +71,7 @@ export default function News(props) {
           </Button>
         )}
 
-        <Logo className="news__logo">Последние новости</Logo>
+        <Logo className={styles['news__logo']}>Последние новости</Logo>
         <NewsList
           news={news}
           onClickDetail={LoadDetail}

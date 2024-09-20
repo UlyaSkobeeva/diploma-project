@@ -262,11 +262,6 @@
 */
 
 /* НОВОСТИ */
-.news {
-  background-color: #2a4359;
-  padding: 40px 0 40px 0;
-  /* color: #000000; */
-}
 
 .news__inner {
   display: flex;
@@ -275,14 +270,6 @@
   justify-content: center;
 
   /* border: 10px solid #f1f0fc; */
-}
-
-.news__logo {
-  text-align: center;
-  padding: 20px 0px 20px 0px;
-  font-size: 24px;
-  margin-bottom: 30px;
-  color: #ffffff;
 }
 
 .news__item {

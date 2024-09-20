@@ -1,7 +1,21 @@
+/*перенести*/
+.news-controls__button {
+  margin-top: 10px;
+}
+
+.news {
+  background-color: #2a4359;
+  padding: 40px 0 40px 0;
+}
+
 .news-create__button {
   margin-bottom: 10px;
 }
 
-.news-controls__button {
-  margin-top: 10px;
+.news__logo {
+  text-align: center;
+  padding: 20px 0px 20px 0px;
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #ffffff;
 }
