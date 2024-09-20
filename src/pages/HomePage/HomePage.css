@@ -263,15 +263,6 @@
 
 /* НОВОСТИ */
 
-.news__inner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-
-  /* border: 10px solid #f1f0fc; */
-}
-
 .news__item {
   background-color: rgb(255, 255, 255);
   height: 270px;

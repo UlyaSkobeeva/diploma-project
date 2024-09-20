@@ -1,8 +1,9 @@
 import NewsItem from './NewsItem'
+import styles from './NewsList.module.css'
 
 const NewsList = (props) => {
   return (
-    <div className="news__inner">
+    <div className={styles['news__list']}>
       {props.news.map((newElem) => (
         <NewsItem
           key={newElem.id}
