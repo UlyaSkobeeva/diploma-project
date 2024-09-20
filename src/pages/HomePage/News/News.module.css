@@ -19,3 +19,15 @@
   margin-bottom: 30px;
   color: #ffffff;
 }
+
+@media (max-width: 650px) {
+  .news {
+    padding: 30px 0 20px 0;
+  }
+  .news__logo {
+    padding: 0px;
+    padding-top: 10px;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}
