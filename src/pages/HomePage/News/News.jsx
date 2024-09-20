@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Button from '../../../UI/Button/Button'
 import styles from './News.module.css'
 import Logo from '../../../UI/Logo/Logo'
+import NewsList from './NewsList'
 
 export default function News(props) {
   //получение данных с сервера
@@ -71,46 +72,13 @@ export default function News(props) {
         )}
 
         <Logo className="news__logo">Последние новости</Logo>
-
-        <div className="news__inner">
-          {news.map((newElem) => (
-            <div className="news__item" key={newElem.id}>
-              <div className="news__foto">
-                <img className="picture" src={newElem.smallImg} alt="" />
-              </div>
-              <div className="news__text">
-                <p className="news__paragraph">{newElem.smallTitle}</p>
-                <a
-                  onClick={() => {
-                    LoadDetail(newElem.id)
-                  }}
-                  className="news__link"
-                >
-                  Читать больше →
-                </a>
-              </div>
-
-              {props.user?.isAdmin && (
-                <div className="input-button-section">
-                  <Button
-                    className={styles['news-controls__button']}
-                    onClick={() => {
-                      LoadEdit(newElem.id)
-                    }}
-                  >
-                    Изменить
-                  </Button>
-                  <Button
-                    className={styles['news-controls__button']}
-                    onClick={() => RemoveFunction(newElem.id)}
-                  >
-                    Удалить
-                  </Button>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+        <NewsList
+          news={news}
+          onClickDetail={LoadDetail}
+          onClickRemove={RemoveFunction}
+          onClickEdit={LoadEdit}
+          user={props.user}
+        />
       </div>
     </div>
   )
