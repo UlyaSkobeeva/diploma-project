@@ -1,5 +1,5 @@
 import Button from '../../../UI/Button/Button'
-import styles from './News.module.css'
+import styles from './NewsItem.module.css'
 
 const NewsItem = (props) => {
   const { newElem } = props
@@ -16,15 +16,13 @@ const NewsItem = (props) => {
   }
 
   return (
-    <div className="news__item">
-      <div className="news__foto">
-        <img className="picture" src={newElem.smallImg} alt="" />
+    <div className={styles['news__item']}>
+      <div className={styles['news__foto']}>
+        <img src={newElem.smallImg} alt="" />
       </div>
-      <div className="news__text">
-        <p className="news__paragraph">{newElem.smallTitle}</p>
-        <a onClick={() => LoadDetailHandler(newElem.id)} className="news__link">
-          Читать больше →
-        </a>
+      <div className={styles['news__text']}>
+        <p>{newElem.smallTitle}</p>
+        <a onClick={() => LoadDetailHandler(newElem.id)}>Читать больше →</a>
       </div>
 
       {props.user?.isAdmin && (
