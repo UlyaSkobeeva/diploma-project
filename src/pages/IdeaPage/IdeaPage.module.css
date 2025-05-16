@@ -1,5 +1,16 @@
-.idea-create__button {
-  width: 150px;
+.idea-page__title {
+  font-size: 18px;
+}
+
+/* без important не переопределяются стили только здесь */
+.idea-page__button {
+  justify-content: flex-start !important;
+}
+
+.idea-page__button button {
+  width: 150px !important;
+  height: 30px !important;
+  padding: 5px !important;
 }
 
 .job__button {

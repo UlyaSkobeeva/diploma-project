@@ -1,0 +1,14 @@
+.login-page {
+  margin-top: 150px;
+}
+
+.login-page__title {
+  font-size: 32px;
+}
+
+@media (max-width: 650px) {
+  .login-page__title {
+    font-size: 22px;
+    margin-bottom: 28px;
+  }
+}

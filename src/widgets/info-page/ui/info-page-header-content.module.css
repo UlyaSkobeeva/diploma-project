@@ -1,0 +1,26 @@
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  color: #2a4359;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 650px) {
+  .title {
+    font-size: 16px;
+  }
+}
+
+.description {
+  text-align: center;
+  color: #2a4359;
+  margin-bottom: 16px;
+}
+
+.link {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.link:hover {
+  color: #b39637;
+}

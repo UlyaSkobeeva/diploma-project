@@ -1,0 +1,48 @@
+.custom-form {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 20px;
+  cursor: default;
+}
+
+.custom-form__title {
+  text-align: center;
+  text-transform: uppercase;
+  color: #2a4359;
+  margin-bottom: 10px;
+}
+
+/* инпут */
+.custom-form__item {
+  margin-bottom: 16px;
+}
+
+.custom-form__input,
+.custom-form__textarea {
+  border: 1px solid #ccc;
+  /* border: 1px solid #eb6a6a; */
+  border-radius: 5px;
+  padding: 8px 16px;
+  width: 100%;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.custom-form__textarea {
+  min-height: 100px;
+}
+
+/* кнопки */
+
+.custom-form__control-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 650px) {
+  .custom-form__title {
+    font-size: 16px;
+  }
+}

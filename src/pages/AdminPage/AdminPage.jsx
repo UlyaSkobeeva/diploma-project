@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { useEffect } from 'react'
 import './Admin.css'
-import Button from '../../UI/Button/Button'
+
 import styles from './Admin.module.css'
+import { CustomForm } from '../../shared/ui/custom-form'
+import { Button } from '../../shared/ui/button'
 
 export default function Admin() {
   const [users, setUsers] = useState([])
@@ -112,117 +114,73 @@ export default function Admin() {
     getUser()
   }, [])
 
-  return (
-    <div className="admin-container">
-      <div className="head-container">
-        <h3 className="input-logo" style={{ marginBottom: '20px' }}>
-          Администрирование
-        </h3>
-        <input
-          type="text"
-          autoComplete="off"
-          placeholder="Введите логин"
-          className="input-inp"
-          value={login}
-          onChange={(e) => setLogin(e.target.value)}
-          // onKeyUp={handleKeyPress}
-        />
-        <input
-          type="text"
-          autoComplete="off"
-          placeholder="Введите пароль"
-          className="input-inp"
-          value={password}
-          onChange={(e) => setPas(e.target.value)}
-          // onKeyUp={handleKeyPress}
-        />
-        <Button
-          className={styles['admin-create__button']}
-          onClick={() => {
-            buttonText === 'добавить' ? addUser() : editUser()
-          }}
-        >
-          {buttonText}
-        </Button>
-      </div>
+  const fields = [
+    {
+      placeholder: 'Введите логин',
+      type: 'text',
+      name: 'login',
+      value: login,
+      onChange: (e) => setLogin(e.target.value),
+    },
+    {
+      placeholder: 'Введите пароль',
+      type: 'text',
+      name: 'password',
+      value: password,
+      onChange: (e) => setPas(e.target.value),
+    },
+  ]
 
-      {users.map((user) => (
-        <div className="admin-item" key={user.id}>
-          {user.isAdmin === true ? (
-            <>
-              {/* если админ */}
-              <div className="admin-info">
-                <div className="auth-info">
-                  <label className="admin-label">логин</label>
-                  <p className="admin-title ">{user.login}</p>
-                </div>
-                <div className="auth-info">
-                  <label className="admin-label">пароль</label>
-                  <p className="admin-title ">{user.password}</p>
-                </div>
+  const handlesubmit = (e) => {
+    e.preventDefault()
+    buttonText === 'добавить' ? addUser() : editUser()
+  }
+  return (
+    <>
+      <CustomForm
+        fields={fields}
+        onSubmit={handlesubmit}
+        title="Администрирование"
+        submitBtn={buttonText}
+        containerClassName={styles['admin-page']}
+        titleClassName={styles['admin-page__title']}
+        buttonsClassName={styles['admin-page__button']}
+      />
+      <div className="admin-container">
+        {users.map((user) => (
+          <div className="admin-item" key={user.id}>
+            <div className="admin-info">
+              <div className="auth-info">
+                <label className="admin-label">логин</label>
+                <p className="admin-title ">{user.login}</p>
               </div>
-              <div className="admin-button">
-                <div className="userRole">
-                  <button
-                    className="Adone "
-                    style={{ marginRight: '10px' }}
-                    value={user.id}
-                    onClick={(e) => changeRole(e.target.value)}
-                  >
-                    🟢
-                  </button>
-                  <p>роль: администратор</p>
-                </div>
-                <div className="calendar-button">
-                  <Button onClick={() => getEdit(user.id)}>Изменить</Button>
-                  <Button onClick={() => deleteUser(user.id)}>удалить</Button>
-                </div>
+              <div className="auth-info">
+                <label className="admin-label">пароль</label>
+                <p className="admin-title ">{user.password}</p>
               </div>
-            </>
-          ) : (
-            <>
-              {/* если пользователь */}
-              <div className="admin-info">
-                <div className="auth-info">
-                  <label className="admin-label">логин</label>
-                  <p className="admin-title ">{user.login}</p>
-                </div>
-                <div className="auth-info">
-                  <label className="admin-label">пароль</label>
-                  <p className="admin-title ">{user.password}</p>
-                </div>
+            </div>
+            <div className="admin-button">
+              <div className="userRole">
+                <button
+                  className="Adone "
+                  style={{ marginRight: '10px' }}
+                  value={user.id}
+                  onClick={(e) => changeRole(e.target.value)}
+                >
+                  {user.isAdmin ? '🟢' : '🔴'}
+                </button>
+                <p>
+                  {user.isAdmin ? 'роль: администратор' : 'роль: пользователь'}
+                </p>
               </div>
-              <div className="admin-button">
-                <div className="userRole">
-                  <button
-                    className="Adone "
-                    style={{ marginRight: '10px' }}
-                    value={user.id}
-                    onClick={(e) => changeRole(e.target.value)}
-                  >
-                    🔴
-                  </button>
-                  <p>роль: пользователь</p>
-                </div>
-                <div className="calendar-button">
-                  <Button
-                    onClick={() => getEdit(user.id)}
-                    className="operate-button"
-                  >
-                    Изменить
-                  </Button>
-                  <Button
-                    onClick={() => deleteUser(user.id)}
-                    className="operate-button"
-                  >
-                    удалить
-                  </Button>
-                </div>
+              <div>
+                <Button onClick={() => getEdit(user.id)}>Изменить</Button>
+                <Button onClick={() => deleteUser(user.id)}>удалить</Button>
               </div>
-            </>
-          )}
-        </div>
-      ))}
-    </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
   )
 }

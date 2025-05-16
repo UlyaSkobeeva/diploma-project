@@ -1,15 +1,13 @@
 {
   "worker": [
     {
-      "id": 1,
       "name": "Савельев Максим Иванович",
       "job": "Директор",
       "number": "89078679876",
       "mail": "SavelevM@mail.ru",
-      "bday": "17 марта",
+      "birthday": "1997-01-11",
       "img": "https://i.pinimg.com/736x/79/c1/62/79c16268868eb9fced9c3214aab15311.jpg",
-      "day": 17,
-      "month": "март"
+      "id": 1
     },
     {
       "id": 2,
@@ -17,10 +15,8 @@
       "job": "Руководитель IT-отдела",
       "number": "89078679876",
       "mail": "Fokin@mail.ru",
-      "bday": "29 сентября",
-      "img": "https://static.tildacdn.com/tild6136-6261-4635-b130-643134303761/noroot.png",
-      "day": 29,
-      "month": "сентябр"
+      "birthday": "1998-11-10",
+      "img": "https://static.tildacdn.com/tild6136-6261-4635-b130-643134303761/noroot.png"
     },
     {
       "id": 3,
@@ -28,10 +24,8 @@
       "job": "Секретарь",
       "number": "89068975678",
       "mail": "AlexeevaI@mail.ru",
-      "bday": "10 октября",
-      "img": "https://thumbs.dreamstime.com/b/%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D0%BB%D0%B5%D0%B4%D0%B8-%D0%B4%D0%B5%D1%80%D0%B6%D0%B0-%D0%BA%D0%BD%D0%B8%D0%B3%D1%83-%D0%BC%D0%BE%D0%BB%D0%BE%D0%B4%D0%BE%D0%B9-%D0%B6%D0%B5%D0%BD%D1%81%D0%BA%D0%B8%D0%B9-%D0%BF%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BD%D0%B8%D0%BA%D0%B0-103843209.jpg",
-      "day": 10,
-      "month": "октябр"
+      "birthday": "1995-01-10",
+      "img": "https://thumbs.dreamstime.com/b/%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D0%BB%D0%B5%D0%B4%D0%B8-%D0%B4%D0%B5%D1%80%D0%B6%D0%B0-%D0%BA%D0%BD%D0%B8%D0%B3%D1%83-%D0%BC%D0%BE%D0%BB%D0%BE%D0%B4%D0%BE%D0%B9-%D0%B6%D0%B5%D0%BD%D1%81%D0%BA%D0%B8%D0%B9-%D0%BF%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BD%D0%B8%D0%BA%D0%B0-103843209.jpg"
     },
     {
       "id": 4,
@@ -39,10 +33,8 @@
       "job": "Инспектор по кадрам",
       "number": "89078679876",
       "mail": "Smirnov@mail.ru",
-      "bday": "25 сентября",
-      "img": "https://avatars.mds.yandex.net/i?id=4b5f2910ef6ae60359798cadeab31ec1-4552949-images-thumbs&n=13",
-      "day": 25,
-      "month": "сентябр"
+      "birthday": "1997-10-09",
+      "img": "https://avatars.mds.yandex.net/i?id=4b5f2910ef6ae60359798cadeab31ec1-4552949-images-thumbs&n=13"
     },
     {
       "id": 5,
@@ -50,10 +42,8 @@
       "job": "Главный бухгалтер",
       "number": "89078679876",
       "mail": "Lazareva@mail.ru",
-      "bday": "20 сентября",
-      "img": "https://shortread.ru/wp-content/uploads/2020/11/Guzel-Valeeva-e1604517752818-750x750.jpg.pagespeed.ce.hFdTVJiIlY.jpg",
-      "day": 20,
-      "month": "сентябр"
+      "birthday": "1997-01-10",
+      "img": "https://shortread.ru/wp-content/uploads/2020/11/Guzel-Valeeva-e1604517752818-750x750.jpg.pagespeed.ce.hFdTVJiIlY.jpg"
     },
     {
       "id": 6,
@@ -61,10 +51,8 @@
       "job": "IT-специалист",
       "number": "89078679876",
       "mail": "IlinAr@mail.ru",
-      "bday": "6 октября",
-      "img": "https://www.obeliski.ru/ymaxiProduct/files/old/files/pictures/27427.jpg",
-      "day": 6,
-      "month": "октябр"
+      "birthday": "1997-01-10",
+      "img": "https://www.obeliski.ru/ymaxiProduct/files/old/files/pictures/27427.jpg"
     },
     {
       "id": 7,
@@ -72,10 +60,8 @@
       "job": "Бухгалтер",
       "number": "89078679876",
       "mail": "Volkova@mail.ru",
-      "bday": "28 июня",
-      "img": "https://static.tildacdn.com/tild3534-3664-4164-b662-393933356239/____.JPG",
-      "day": 28,
-      "month": "июн"
+      "birthday": "1997-01-10",
+      "img": "https://static.tildacdn.com/tild3534-3664-4164-b662-393933356239/____.JPG"
     },
     {
       "id": 11,
@@ -83,56 +69,57 @@
       "job": "IT-специалист",
       "number": "89078679876",
       "mail": "Berezina@mail.ru",
-      "bday": "20 октября",
-      "img": "https://ua.estet-portal.com/images/article/main/fokus-na-prikus-kak-uluchshit-estetiku-lica-i-obshchee-zdorove-1591008203.jpeg",
-      "day": 20,
-      "month": "октябр"
+      "birthday": "1997-01-10",
+      "img": "https://ua.estet-portal.com/images/article/main/fokus-na-prikus-kak-uluchshit-estetiku-lica-i-obshchee-zdorove-1591008203.jpeg"
+    },
+    {
+      "name": "bnbn",
+      "job": "bnbnbnb",
+      "number": "",
+      "mail": "",
+      "birthday": "",
+      "img": "",
+      "id": 12
     }
   ],
   "calendar": [
     {
-      "day": 28,
-      "month": "сентябрь",
+      "date": "2020-09-28",
       "title": "Субботник",
       "description": "Дорогие коллеги! Мы собираемся провести субботник и приглашаем вас присоединиться к нам в этот замечательный день! Время: с 11:00 до 13:00. Место: Парк около нашего офиса. Прошу всех желающих присоединиться к нам и внести свой вклад в уют и порядок нашего рабочего пространства. Вместе мы сможем создать уютную и приятную обстановку для всех! ",
       "details": "Не забудьте взять с собой удобную одежду, перчатки и хорошее настроение. Будем рады видеть каждого участника субботника!",
       "id": 2
     },
     {
-      "day": 4,
-      "month": "октябрь",
+      "date": "2020-10-04",
       "title": "День рождения компании",
       "description": "4 октября мы рады пригласить вас на праздничное мероприятие, посвященное важному событию в жизни нашей компании. Присоединяйтесь к нам в этот день, чтобы вместе отметить достижения, радостные моменты и будущие планы. Будет много удивительных сюрпризов, веселых моментов и приятных встреч! Мы ждем вас на нашем празднике. Давайте праздновать вместе!",
       "details": "Подробности можно узнать по телефону 8-907-879-78-09 (Александр Дмитрииевич)",
       "id": 4
     },
     {
-      "day": 11,
-      "month": "октябрь",
+      "date": "2020-10-11",
       "title": "Соревнования по футболу",
       "description": "Приглашаем вас принять участие в наших захватывающих соревнованиях по футболу! 11 октября на нашем спортивном поле пройдут футбольные матчи, наполненные азартом, эмоциями и спортивным духом. Будут созданы команды, готовые сразиться за победу и показать свое мастерство на поле. Присоединяйтесь к нам в этот день, чтобы насладиться игрой, поддержать участников и провести время в компании единомышленников. Приглашаем всех любителей футбола и активного отдыха присоединиться к нам на соревнованиях 11 октября. Давайте встретим лето на спортивном празднике вместе!",
       "id": 13
     },
     {
-      "day": 30,
-      "month": "сентябрь",
+      "date": "2020-11-30",
       "title": "Совещание",
       "description": "Спешим вас проинформировать, что 30 сентября состоится важное совещание. Приглашаем всех сотрудников принять участие в этом мероприятии, где будут обсуждаться ключевые аспекты работы, планы на будущее и важные решения для нашей компании.",
       "details": "Совещание пройдет в кабинете №17 в 9:00. Прошу не опаздывать, так как вас ждет продуктивная работа и конструктивный диалог.",
       "id": 15
     },
     {
-      "day": 1,
-      "month": "сентябрь",
-      "title": "e",
-      "description": "",
-      "details": "",
-      "id": 16
+      "id": 16,
+      "date": "2020-09-26",
+      "title": "привет",
+      "description": "описание",
+      "details": "87878787878787878"
     },
     {
-      "day": 4,
-      "month": "сентябрь",
-      "title": "    ",
+      "date": "2025-05-16",
+      "title": "fffdfd",
       "description": "",
       "details": "",
       "id": 17
@@ -144,8 +131,8 @@
       "smallImg": "https://cdn-icons-png.flaticon.com/128/7108/7108096.png",
       "smallTitle": "100% работников переведены на новую электронную почту",
       "title": "Перевод на новую электронную почту",
-      "desc": "После тщательной подготовки и планирования, все сотрудники были переведены на новую электронную почту, что стало знаковым событием в корпоративной жизни компании. Переход на новую систему электронной почты обусловлен стремлением компании к повышению эффективности коммуникаций, обеспечению безопасности информации и улучшению рабочих процессов. Новая почтовая система предлагает расширенные функциональные возможности, современный дизайн и более надежную защиту данных. В течение переходного периода, специалисты по ИТ провели обучающие семинары и индивидуальную поддержку для сотрудников, чтобы обеспечить плавное и безпроблемное внедрение новой системы.",
-      "PS": "Мы благодарим всех сотрудников за понимание, активное участие и поддержку в процессе перехода на новую электронную почту. Совместными усилиями мы сделали значимый шаг вперед в развитии нашей компании и улучшении рабочих процессов. Вместе мы сможем достичь новых высот и добиться больших успехов!",
+      "description": "После тщательной подготовки и планирования, все сотрудники были переведены на новую электронную почту, что стало знаковым событием в корпоративной жизни компании. Переход на новую систему электронной почты обусловлен стремлением компании к повышению эффективности коммуникаций, обеспечению безопасности информации и улучшению рабочих процессов. Новая почтовая система предлагает расширенные функциональные возможности, современный дизайн и более надежную защиту данных. В течение переходного периода, специалисты по ИТ провели обучающие семинары и индивидуальную поддержку для сотрудников, чтобы обеспечить плавное и безпроблемное внедрение новой системы.",
+      "details": "Мы благодарим всех сотрудников за понимание, активное участие и поддержку в процессе перехода на новую электронную почту. Совместными усилиями мы сделали значимый шаг вперед в развитии нашей компании и улучшении рабочих процессов. Вместе мы сможем достичь новых высот и добиться больших успехов!",
       "img": "https://amiel.club/uploads/posts/2022-03/1647534172_2-amiel-club-p-lyudi-za-kompyuterom-kartinki-3.jpg"
     },
     {
@@ -153,16 +140,16 @@
       "smallImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5LUo7pApTdxv1Mz-19b2JI47ko1kIVfFQAw&usqp=CAU",
       "smallTitle": "Партнерство с крупным мировым брендом",
       "title": "Важное событие в жизни компании: партнерство с крупным мировым брендом!",
-      "desc": "Мы рады объявить о заключении стратегического партнерства с ведущим мировым брендом. Это соглашение стало ключевым шагом в развитии нашей компании и открывает новые перспективы для сотрудничества на мировом уровне. Партнерство позволит нам обогатить наш продуктовый портфель, расширить географию деятельности и укрепить позиции на рынке. Мы убеждены, что совместные усилия позволят нам достичь новых высот в области инноваций, качества и обслуживания клиентов. Это партнерство отражает стремление нашей компании к постоянному развитию, сотрудничеству с лучшими партнерами и улучшению качества предоставляемых услуг. Мы гордимся возможностью работать рука об руку с таким выдающимся брендом, и уверены, что наше сотрудничество принесет значительные плоды для обеих компаний.",
-      "PS": "Партнерство с крупным мировым брендом отмечает новый этап в нашем развитии и подчеркивает нашу стратегическую ориентацию на инновации, качество и долгосрочное сотрудничество. Мы ждем с нетерпением новых возможностей, которые откроются перед нами благодаря этому партнерству, и уверены в успешном сотрудничестве в будущем!",
+      "description": "Мы рады объявить о заключении стратегического партнерства с ведущим мировым брендом. Это соглашение стало ключевым шагом в развитии нашей компании и открывает новые перспективы для сотрудничества на мировом уровне. Партнерство позволит нам обогатить наш продуктовый портфель, расширить географию деятельности и укрепить позиции на рынке. Мы убеждены, что совместные усилия позволят нам достичь новых высот в области инноваций, качества и обслуживания клиентов. Это партнерство отражает стремление нашей компании к постоянному развитию, сотрудничеству с лучшими партнерами и улучшению качества предоставляемых услуг. Мы гордимся возможностью работать рука об руку с таким выдающимся брендом, и уверены, что наше сотрудничество принесет значительные плоды для обеих компаний.",
+      "details": "Партнерство с крупным мировым брендом отмечает новый этап в нашем развитии и подчеркивает нашу стратегическую ориентацию на инновации, качество и долгосрочное сотрудничество. Мы ждем с нетерпением новых возможностей, которые откроются перед нами благодаря этому партнерству, и уверены в успешном сотрудничестве в будущем!",
       "img": "https://img.freepik.com/premium-photo/business-people-shaking-hands-office-business-people-shaking-hands-white-background_444642-1113.jpg"
     },
     {
       "smallTitle": "Наши спортсмены достойно победили!",
       "smallImg": "https://cdn-icons-png.flaticon.com/128/625/625449.png",
       "title": "Первое место в соревнованиях по баскетболу: наши спортсмены достойно победили!",
-      "desc": "Мы с радостью хотим поделиться отличными новостями: наши баскетболисты заняли первое место на соревнованиях! Наша команда продемонстрировала высокий уровень мастерства, четкую игровую тактику и абсолютное единство в команде, что позволило нам завоевать заслуженную победу. Эта победа - результат упорной тренировки, настойчивости и несгибаемого духа борьбы наших спортсменов. Мы гордимся нашей командой и благодарим каждого участника за столь яркое выступление. Это победа не только для команды, но и для нашей компании. Она подчеркивает нашу стремление к достижению высоких результатов, внимание к здоровому образу жизни и поддержку спортивных инициатив.",
-      "PS": "Поздравляем наших победителей и тренеров с этим замечательным достижением! Пусть эта победа станет стимулом для новых свершений и подвигов!",
+      "description": "Мы с радостью хотим поделиться отличными новостями: наши баскетболисты заняли первое место на соревнованиях! Наша команда продемонстрировала высокий уровень мастерства, четкую игровую тактику и абсолютное единство в команде, что позволило нам завоевать заслуженную победу. Эта победа - результат упорной тренировки, настойчивости и несгибаемого духа борьбы наших спортсменов. Мы гордимся нашей командой и благодарим каждого участника за столь яркое выступление. Это победа не только для команды, но и для нашей компании. Она подчеркивает нашу стремление к достижению высоких результатов, внимание к здоровому образу жизни и поддержку спортивных инициатив.",
+      "details": "Поздравляем наших победителей и тренеров с этим замечательным достижением! Пусть эта победа станет стимулом для новых свершений и подвигов!",
       "img": "https://mininuniver.ru/images/news/Newspreview/2021-10-27-%D1%84%D0%B8%D0%B7%D1%80%D1%83%D0%BA%D0%B8/9K3A8028_1.jpg",
       "id": 4
     },
@@ -170,8 +157,8 @@
       "smallTitle": "Новый метод работы",
       "smallImg": "https://cdn-icons-png.flaticon.com/128/1243/1243560.png",
       "title": "",
-      "desc": "",
-      "PS": "",
+      "description": "",
+      "details": "",
       "img": "",
       "id": 5
     },
@@ -179,8 +166,8 @@
       "smallTitle": "Успешное завершение проекта по разработке инновационного продукта!",
       "smallImg": "https://cdn-icons-png.flaticon.com/128/11744/11744452.png",
       "title": "Важное событие в жизни нашей компании: успешное завершение проекта по разработке инновационного продукта!",
-      "desc": "Мы с гордостью объявляем о завершении долгосрочного проекта по разработке нового инновационного продукта, который открывает новые горизонты для нашей компании и отражает нашу силу в области технологических инноваций.\n\nЭтот проект был результатом коллективных усилий наших талантливых специалистов, инженеров, дизайнеров и маркетологов. Благодаря их творческому подходу, профессионализму и стойкости в преодолении трудностей, мы смогли создать уникальный продукт, способный удовлетворить потребности наших клиентов и отразить нашу ведущую позицию на рынке.\n\nНовый продукт не только демонстрирует наши возможности в области инноваций и технологий, но и открыл для нас новые перспективы для развития и роста. Мы уверены, что это станет отправной точкой для создания еще более уникальных и конкурентоспособных продуктов в будущем.\n",
-      "PS": "Поздравляем всю команду с успешным завершением этого важного этапа! Это заслуженное признание вашего труда, преданности и профессионализма. Давайте продолжать двигаться вперед, открывая новые горизонты и добиваясь новых высот вместе!",
+      "description": "Мы с гордостью объявляем о завершении долгосрочного проекта по разработке нового инновационного продукта, который открывает новые горизонты для нашей компании и отражает нашу силу в области технологических инноваций.\n\nЭтот проект был результатом коллективных усилий наших талантливых специалистов, инженеров, дизайнеров и маркетологов. Благодаря их творческому подходу, профессионализму и стойкости в преодолении трудностей, мы смогли создать уникальный продукт, способный удовлетворить потребности наших клиентов и отразить нашу ведущую позицию на рынке.\n\nНовый продукт не только демонстрирует наши возможности в области инноваций и технологий, но и открыл для нас новые перспективы для развития и роста. Мы уверены, что это станет отправной точкой для создания еще более уникальных и конкурентоспособных продуктов в будущем.\n",
+      "details": "Поздравляем всю команду с успешным завершением этого важного этапа! Это заслуженное признание вашего труда, преданности и профессионализма. Давайте продолжать двигаться вперед, открывая новые горизонты и добиваясь новых высот вместе!",
       "img": "data:image/jpeg;base64,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",
       "id": 6
     },
@@ -188,10 +175,19 @@
       "smallTitle": "Расширение функциональности корпоративного портала",
       "smallImg": "https://cdn-icons-png.flaticon.com/128/2896/2896418.png",
       "title": "Добавлен новый раздел 'Банк идей' для стимулирования творчества и инноваций сотрудников!",
-      "desc": "Мы рады сообщить о запуске нового раздела 'Банк идей' на нашем корпоративном портале. Этот инновационный раздел предназначен для того, чтобы наши сотрудники могли делиться своими идеями, предложениями и творческими решениями, способствуя тем самым развитию компании и улучшению ее деятельности.\nВ 'Банке идей' каждый сотрудник может высказать свои мысли по улучшению бизнес-процессов, разработке новых продуктов, повышению эффективности работы и другим вопросам. Это отличная возможность для коллективного творчества, совместной работы и поиска инновационных решений.\nПриглашаем всех сотрудников делиться своими креативными предложениями. Вместе мы сможем создать новую культуру инноваций и достичь еще больших успехов!\n",
-      "PS": "С уважением, администрация корпоративного портала",
+      "description": "Мы рады сообщить о запуске нового раздела 'Банк идей' на нашем корпоративном портале. Этот инновационный раздел предназначен для того, чтобы наши сотрудники могли делиться своими идеями, предложениями и творческими решениями, способствуя тем самым развитию компании и улучшению ее деятельности.\nВ 'Банке идей' каждый сотрудник может высказать свои мысли по улучшению бизнес-процессов, разработке новых продуктов, повышению эффективности работы и другим вопросам. Это отличная возможность для коллективного творчества, совместной работы и поиска инновационных решений.\nПриглашаем всех сотрудников делиться своими креативными предложениями. Вместе мы сможем создать новую культуру инноваций и достичь еще больших успехов!\n",
+      "details": "С уважением, администрация корпоративного портала",
       "img": "",
       "id": 7
+    },
+    {
+      "smallTitle": "vcvc",
+      "smallImg": "",
+      "title": "vcvccv",
+      "description": "cvcv",
+      "details": "",
+      "img": "",
+      "id": 8
     }
   ],
   "idea": [

@@ -1,28 +1,27 @@
+//вынести логику из файла
+
 import { Routes, Route } from 'react-router-dom'
 
 //ИМПОРТИРУЕМ СТРАНИЦЫ
-import Home from './pages/HomePage/HomePage'
+import { HomePage } from './pages/home-page'
 import Worker from './pages/Worker/WorkerPage'
 import Document from './pages/DocumentPage/DocumentPage'
-// import {NotFoundPage} from "../../pages/NotFoundPage"
 import Idea from './pages/IdeaPage/IdeaPage'
 import Company from './pages/CompanyPage/СompanyPage'
+import { InfoPage } from './pages/info-page'
 
 import Layout from './components/Layout/Layout' //ИМПОРТ ХЕДЕРА и футера
-import WorkerCreate from './pages/Worker/WorkerCreate'
-import WorkerEdit from './pages/Worker/WorkerEdit'
-import CalendarCreate from './pages/HomePage/InfoCalendar/InfoCalendarCreate'
-import CalendarDetail from './pages/HomePage/InfoCalendar/InfoCalendarDetail'
-import CalendarEdit from './pages/HomePage/InfoCalendar/InfoCalendarEdit'
+import { WorkerEditorForm } from './pages/Worker/worker-editor-form'
 
-import NewsCreate from './pages/HomePage/News/NewsCreate'
-import NewsDetail from './pages/HomePage/News/NewsDetail'
-import NewsEdit from './pages/HomePage/News/NewsEdit'
 import { useEffect, useState } from 'react'
 import { Login } from './pages/LoginPage/LoginPage'
 import { AUTH_KEY } from './shared/constants/authKey'
-import Info from './pages/InfoPage/InfoPage'
+
 import Admin from './pages/AdminPage/AdminPage'
+
+import { CalendarEditorForm, InfoCalendarDetail } from './widgets/info-calendar'
+import { NewsDetail, NewsEditorForm } from './widgets/news'
+
 // import './App.css'
 
 export default function App() {
@@ -79,30 +78,39 @@ export default function App() {
         {/* <Route path="/login" element={<Login />} /> */}
 
         <Route path="/" element={<Layout user={user} />}>
-          <Route index element={<Home user={user} />} />
+          <Route index element={<HomePage user={user} />} />
 
-          <Route path="/calendar/create" element={<CalendarCreate />} />
+          <Route
+            path="/calendar/create"
+            element={<CalendarEditorForm isCreate />}
+          />
           <Route
             path="/calendar/detail/:calenid"
-            element={<CalendarDetail />}
+            element={<InfoCalendarDetail />}
           />
-          <Route path="/calendar/edit/:calenid" element={<CalendarEdit />} />
+          <Route
+            path="/calendar/edit/:calendarId"
+            element={<CalendarEditorForm />}
+          />
 
-          <Route path="/news/create" element={<NewsCreate />} />
+          <Route path="/news/create" element={<NewsEditorForm isCreate />} />
           <Route path="/news/detail/:newsid" element={<NewsDetail />} />
-          <Route path="/news/edit/:newsid" element={<NewsEdit />} />
+          <Route path="/news/edit/:newsId" element={<NewsEditorForm />} />
 
           <Route path="worker" element={<Worker user={user} />} />
 
           {/*Создать новый  */}
-          <Route path="/worker/create" element={<WorkerCreate />} />
+          <Route
+            path="/worker/create"
+            element={<WorkerEditorForm isCreate />}
+          />
 
           {/* редактировать */}
-          <Route path="/worker/edit/:workid" element={<WorkerEdit />} />
+          <Route path="/worker/edit/:workerId" element={<WorkerEditorForm />} />
 
           <Route path="document" element={<Document />} />
 
-          <Route path="info" element={<Info />} />
+          <Route path="info" element={<InfoPage />} />
           <Route path="idea" element={<Idea user={user} />} />
           <Route path="company" element={<Company />} />
           <Route path="admin" element={<Admin />} />

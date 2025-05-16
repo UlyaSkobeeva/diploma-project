@@ -1,0 +1,48 @@
+.info {
+  padding: 20px 0 40px 0;
+  background-color: #00000007;
+}
+
+.info__container {
+  max-width: 1240px;
+  margin: 0 auto;
+
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@media (max-width: 1000px) {
+  .info__container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 650px) {
+  .info__container {
+    padding: 20px;
+  }
+}
+
+/* др */
+
+.info__birthday-container {
+  padding: 20px;
+  width: 30%;
+  max-height: 400px;
+  background-color: #2a4359;
+  border-radius: 50px;
+}
+
+@media (max-width: 1000px) {
+  .info__birthday-container {
+    width: 60%;
+  }
+}
+
+@media (max-width: 650px) {
+  .info__birthday-container {
+    width: 100%;
+  }
+}

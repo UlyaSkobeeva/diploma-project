@@ -1,8 +1,8 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './WorkerPage.css'
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import Button from '../../UI/Button/Button'
+import { Button } from '../../shared/ui/button'
 
 export default function Worker(props) {
   //получение данных с сервера
@@ -113,7 +113,7 @@ export default function Worker(props) {
                       <h4 className="job">Должность: {work.job}</h4>
                       <h4 className="telephone">Телефон: {work.number}</h4>
                       <h4 className="mail">Эл. почта: {work.mail}</h4>
-                      <h4 className="date">Дата рождения: {work.bday}</h4>
+                      <h4 className="date">Дата рождения: {work.birthday}</h4>
 
                       {props.user?.isAdmin && (
                         <>

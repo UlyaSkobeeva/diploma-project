@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import './IdeaPage.css'
 import PropTypes from 'prop-types'
-import Button from '../../UI/Button/Button'
 import styles from './IdeaPage.module.css'
+import { CustomForm } from '../../shared/ui/custom-form'
+import { Button } from '../../shared/ui/button'
 
 function Idea(props) {
   const [todos, setTodos] = useState([])
@@ -107,80 +108,82 @@ function Idea(props) {
       .then((data) => setTodos(data))
   }
 
+  const handlesubmit = (e) => {
+    e.preventDefault()
+    buttonText === 'добавить' ? addTodo() : editTask()
+  }
+
+  const fields = [
+    {
+      type: 'textarea',
+      name: 'nameOfTask',
+      value: nameOfTask,
+      onChange: (e) => setnameOfTask(e.target.value),
+    },
+  ]
+
   return (
-    <div
-      className="input-container"
-      style={{ paddingBottom: '20px', backgroundColor: '#fff' }}
-    >
-      <div className="head-container">
-        <h3 className="input-logo" style={{ marginBottom: '20px' }}>
-          Поделитесь идеями по улучшению работы компании или web-портала!
-          Помогите нам стать лучше!
-        </h3>
-
-        <textarea
-          type="text"
-          autoComplete="off"
-          placeholder="Введите новую идею..."
-          className="input-inp"
-          value={nameOfTask}
-          onChange={(e) => setnameOfTask(e.target.value)}
-        />
-        <Button
-          className={styles['idea-create__button']}
-          onClick={() => {
-            buttonText === 'добавить' ? addTodo() : editTask()
-          }}
-        >
-          {buttonText}
-        </Button>
-      </div>
-      <hr />
-      <div className="input-button-section" style={{ marginBottom: '10px' }}>
-        <Button
-          className={styles['job__button']}
-          onClick={() => handleFilter('false')}
-        >
-          В работе
-        </Button>
-        <Button
-          className={styles['done__button']}
-          onClick={() => handleFilter('true')}
-        >
-          Выполнено
-        </Button>
-        <Button className={styles['all__button']} onClick={() => getTask()}>
-          ВСЕ
-        </Button>
-      </div>
-      <hr />
-      <div className="todo-container">
-        {todos.map((todo) => (
-          <div key={todo.id} className="todo-list">
-            <div className="left-col">
-              <button
-                className={`done ${props.user?.isAdmin && 'admin__button'}`}
-                onClick={() => checkTask(todo.id)}
-                disabled={props.user?.isAdmin === true ? false : true}
-              >
-                {todo.isDone === true ? '✅' : '🕘'}
-              </button>
-              <p className={`idea-title ${todo.isDone && 'idea-done'} `}>
-                {todo.nameOfTask}
-              </p>
-            </div>
-
-            {/* ДЛЯ АДМИНА */}
-            {props.user?.isAdmin && (
-              <div className="calendar-button">
-                <Button onClick={() => getEdit(todo.id)}>Изменить</Button>
-                <Button onClick={() => deleteTask(todo.id)}>удалить</Button>
+    <>
+      <CustomForm
+        fields={fields}
+        onSubmit={handlesubmit}
+        title="Поделитесь идеями по улучшению работы компании или web-портала! Помогите нам стать лучше!"
+        submitBtn={buttonText}
+        containerClassName={styles['idea-page']}
+        titleClassName={styles['idea-page__title']}
+        buttonsClassName={styles['idea-page__button']}
+      />
+      <div
+        className="input-container"
+        style={{ paddingBottom: '20px', backgroundColor: '#fff' }}
+      >
+        <hr />
+        <div className="input-button-section" style={{ marginBottom: '10px' }}>
+          <Button
+            className={styles['job__button']}
+            onClick={() => handleFilter('false')}
+          >
+            В работе
+          </Button>
+          <Button
+            className={styles['done__button']}
+            onClick={() => handleFilter('true')}
+          >
+            Выполнено
+          </Button>
+          <Button className={styles['all__button']} onClick={() => getTask()}>
+            ВСЕ
+          </Button>
+        </div>
+        <hr />
+        <div className="todo-container">
+          {todos.map((todo) => (
+            <div key={todo.id} className="todo-list">
+              <div className="left-col">
+                <button
+                  className={`done ${props.user?.isAdmin && 'admin__button'}`}
+                  onClick={() => checkTask(todo.id)}
+                  disabled={props.user?.isAdmin === true ? false : true}
+                >
+                  {todo.isDone === true ? '✅' : '🕘'}
+                </button>
+                <p className={`idea-title ${todo.isDone && 'idea-done'} `}>
+                  {todo.nameOfTask}
+                </p>
               </div>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
+
+              {/* ДЛЯ АДМИНА */}
+              {props.user?.isAdmin && (
+                <div className="calendar-button">
+                  <Button onClick={() => getEdit(todo.id)}>Изменить</Button>
+                  <Button onClick={() => deleteTask(todo.id)}>удалить</Button>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>{' '}
+    </>
   )
 }
 
