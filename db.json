@@ -71,15 +71,6 @@
       "mail": "Berezina@mail.ru",
       "birthday": "1997-01-10",
       "img": "https://ua.estet-portal.com/images/article/main/fokus-na-prikus-kak-uluchshit-estetiku-lica-i-obshchee-zdorove-1591008203.jpeg"
-    },
-    {
-      "name": "bnbn",
-      "job": "bnbnbnb",
-      "number": "",
-      "mail": "",
-      "birthday": "",
-      "img": "",
-      "id": 12
     }
   ],
   "calendar": [
@@ -116,13 +107,6 @@
       "title": "привет",
       "description": "описание",
       "details": "87878787878787878"
-    },
-    {
-      "date": "2025-05-16",
-      "title": "fffdfd",
-      "description": "",
-      "details": "",
-      "id": 17
     }
   ],
   "news": [
@@ -193,38 +177,38 @@
   "idea": [
     {
       "id": 2,
-      "nameOfTask": "Добавить возможность оценивать идеи других пользователей",
+      "titleOfIdea": "Добавить возможность оценивать идеи других пользователей",
       "isDone": false
     },
     {
       "id": 3,
-      "nameOfTask": "Ввести систему поощрений для работников",
+      "titleOfIdea": "Ввести систему поощрений для работников",
       "isDone": false
     },
     {
       "id": 4,
-      "nameOfTask": "Разработать личный кабинет для каждого сотрудника ",
+      "titleOfIdea": "Разработать личный кабинет для каждого сотрудника ",
       "isDone": false
     },
     {
       "id": 5,
-      "nameOfTask": "Разработать раздел инфоЦентр",
+      "titleOfIdea": "Разработать раздел инфоЦентр",
       "isDone": true
     },
     {
       "id": 6,
-      "nameOfTask": "Добавить возможность сортировки выполненные/невыполненные предложения",
+      "titleOfIdea": "Добавить возможность сортировки выполненные/невыполненные предложения",
       "isDone": true
     },
     {
       "id": 7,
-      "nameOfTask": "добавить возможность заказа справок",
+      "titleOfIdea": "добавить возможность заказа справок",
       "isDone": false
     },
     {
       "id": 8,
-      "nameOfTask": "поставить новую микроволновку",
-      "isDone": true
+      "titleOfIdea": "поставить новую микроволновку",
+      "isDone": false
     }
   ],
   "files": {

@@ -37,9 +37,6 @@
 }
 
 @media (max-width: 580px) {
-  /* .card__item {
-    padding: 10px;
-  } */
   .image {
     width: 130px;
     height: 130px;
@@ -47,12 +44,6 @@
 }
 
 @media (max-width: 580px) {
-  /* .find__info {
-    width: 200px;
-  }
-  .card__item {
-    flex-direction: column;
-  } */
   .image {
     width: 100px;
     height: 100px;

@@ -1,0 +1,39 @@
+.idea-page__title {
+  font-size: 18px;
+}
+
+/* без important не переопределяются стили только здесь */
+.idea-page__button {
+  justify-content: flex-start !important;
+}
+
+.idea-page__button button {
+  width: 150px !important;
+  height: 30px !important;
+  padding: 5px !important;
+}
+
+.idea-page__container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 20px;
+  cursor: default;
+}
+
+.controls__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+  padding: 10px 0;
+
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+@media (max-width: 450px) {
+  .controls__button {
+    flex-direction: column;
+    gap: 5px;
+  }
+}

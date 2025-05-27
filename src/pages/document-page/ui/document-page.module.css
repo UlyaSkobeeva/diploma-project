@@ -1,0 +1,83 @@
+.document-page {
+  padding: 20px;
+  padding-bottom: 40px;
+
+  max-width: 850px;
+  margin: 0 auto;
+
+  border: thick double #ccc;
+  border-radius: 20px;
+  background: #2a4359;
+}
+
+@media (max-width: 650px) {
+  .document-page {
+    padding-top: 0px;
+  }
+}
+
+.document-page__title {
+  text-transform: uppercase;
+  color: #fff;
+
+  text-align: center;
+  margin: 10px 0px 20px 0px;
+}
+
+@media (max-width: 650px) {
+  .document-page__title {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.document-page__list {
+  padding-left: 32px;
+}
+
+.document-page__list h4 {
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 15px;
+  margin-top: 25px;
+}
+
+@media (max-width: 650px) {
+  .document-page__list h4 {
+    font-size: 14px;
+    font-weight: normal;
+  }
+}
+
+.document-page__list li {
+  padding-left: 2rem;
+  background-image: url(https://cdn-icons-png.flaticon.com/128/888/888883.png);
+  background-position: 0 0;
+  background-size: 1.6rem 1.6rem;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 650px) {
+  .document-page__list {
+    padding-left: 5px;
+  }
+}
+
+.document-page__link {
+  color: #fff;
+  line-height: 40px;
+  font-size: 18px;
+  padding-left: 5px;
+}
+
+.document-page__link:hover {
+  color: #e8cc70f5;
+  cursor: pointer;
+}
+
+@media (max-width: 650px) {
+  .document-page__link {
+    font-size: 16px;
+    line-height: 32px;
+  }
+}
