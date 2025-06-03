@@ -3,6 +3,8 @@ import { Button } from '../../../../shared/ui/button'
 import styles from './info-calendar-list.module.css'
 import { InfoCalendarListProps } from '../types'
 import { RoutePath } from '../../../../shared/types/route-path'
+import { formatShortDate } from '../../../../shared/lib/utils/format-date'
+import { getUpcomingCalendarDates } from '../lib/utils/get-upcoming-calendar-date'
 
 export const InfoCalendarList = (props: InfoCalendarListProps) => {
   const { calendars, user, getCalendarData } = props
@@ -23,13 +25,16 @@ export const InfoCalendarList = (props: InfoCalendarListProps) => {
     }
   }
 
+  //TODO сортировка дат вместе с годом
+  const filteredCalendars = getUpcomingCalendarDates(calendars)
+
   return (
     <div className={styles['info-calendar__list']}>
-      {calendars.map(({ id, date, title }) => (
+      {filteredCalendars.map(({ id, date, title }) => (
         <div className={styles['info-calendar__item']} key={id}>
           <div className={styles['info-calendar__description']}>
             <div className={styles['info-calendar__date']}>
-              <p className={styles.month}>{date}</p>
+              {formatShortDate(date)}
             </div>
             <p className={styles['info-calendar__text']}>{title}</p>
             <a

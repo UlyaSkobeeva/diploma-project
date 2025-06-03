@@ -19,7 +19,7 @@ export const WorkerEditorForm = (props: WorkerEditorFormProps) => {
     job: '',
     number: '',
     mail: '',
-    birthday: '',
+    date: '',
     img: '',
   })
 
@@ -35,7 +35,7 @@ export const WorkerEditorForm = (props: WorkerEditorFormProps) => {
             job: resp.job,
             number: resp.number,
             mail: resp.mail,
-            birthday: resp.birthday,
+            date: resp.date,
             img: resp.img,
           })
         })
@@ -103,8 +103,8 @@ export const WorkerEditorForm = (props: WorkerEditorFormProps) => {
     {
       label: 'Дата рождения',
       type: FieldType.date,
-      name: 'birthday',
-      value: workerData.birthday,
+      name: 'date',
+      value: workerData.date,
       onChange: handleChangeInput,
     },
     {

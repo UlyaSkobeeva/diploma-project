@@ -1,4 +1,4 @@
-import { BirthdaySlider } from '../../../widgets/birthday'
+import { BirthdaySlider } from '../../../entities/birthday-slider'
 import { InfoCalendar } from '../../../widgets/info-calendar'
 import { News } from '../../../widgets/news'
 
@@ -17,7 +17,6 @@ export const HomePage = (props: HomePageProps) => {
     <div className={styles['home-page']}>
       <div className={styles['info']}>
         <div className={styles['info__container']}>
-          {/* Ближайшие события */}
           <InfoCalendar user={user} />
 
           <div className={styles['info__birthday-container']}>

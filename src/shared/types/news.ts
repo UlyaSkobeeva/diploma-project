@@ -6,4 +6,5 @@ export interface News {
   description: string
   details: string
   img: string
+  date?: string
 }

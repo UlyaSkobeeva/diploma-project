@@ -4,6 +4,6 @@ export interface WorkerData {
   job: string
   number: string
   mail: string
-  birthday: string
+  date: string
   img: string
 }

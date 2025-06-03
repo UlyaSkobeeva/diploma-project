@@ -5,6 +5,7 @@ import styles from './workers-list.module.css'
 import { WorkersListProps } from '../types'
 import { Button } from '../../../../shared/ui/button'
 import { RoutePath } from '../../../../shared/types/route-path'
+import { formatDate } from '../../../../shared/lib/utils/format-date'
 
 export const WorkersList = (props: WorkersListProps) => {
   const { filteredWorkers, user, getWorkerData } = props
@@ -25,11 +26,12 @@ export const WorkersList = (props: WorkersListProps) => {
         })
     }
   }
+
   return (
     <div className={styles['workers-list']}>
       {!filteredWorkers.length && <p> информация отствует </p>}
 
-      {filteredWorkers.map(({ id, img, name, job, number, mail, birthday }) => {
+      {filteredWorkers.map(({ id, img, name, job, number, mail, date }) => {
         return (
           <div className={styles['workers-list__item']} key={id}>
             <div className={styles['workers-list__item-img']}>
@@ -40,7 +42,7 @@ export const WorkersList = (props: WorkersListProps) => {
               <h4>Должность: {job}</h4>
               <h4>Телефон: {number}</h4>
               <h4>Эл. почта: {mail}</h4>
-              <h4>Дата рождения: {birthday}</h4>
+              <h4>Дата рождения: {formatDate(date)}</h4>
 
               {user?.isAdmin && (
                 <>

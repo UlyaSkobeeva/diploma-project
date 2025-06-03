@@ -4,8 +4,9 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { NewsEditorFormProps } from '../types'
 import { changingInputState } from '../../../../shared/lib/utils/changing-input-state'
 import { CustomForm } from '../../../../shared/ui/custom-form'
-import { FieldType, News } from '../../../../shared/types'
+import { FieldType, FormatType, News } from '../../../../shared/types'
 import { RoutePath } from '../../../../shared/types/route-path'
+import dayjs from 'dayjs'
 
 export const NewsEditorForm = (props: NewsEditorFormProps) => {
   const { isCreate } = props
@@ -14,6 +15,8 @@ export const NewsEditorForm = (props: NewsEditorFormProps) => {
 
   const navigate = useNavigate()
 
+  const currentDate = isCreate ? dayjs().format(FormatType.api) : ''
+
   const [newsData, setNewsData] = useState<News>({
     smallTitle: '',
     smallImg: '',
@@ -21,6 +24,7 @@ export const NewsEditorForm = (props: NewsEditorFormProps) => {
     description: '',
     details: '',
     img: '',
+    date: currentDate,
   })
 
   useEffect(() => {
@@ -53,7 +57,6 @@ export const NewsEditorForm = (props: NewsEditorFormProps) => {
       body: JSON.stringify(newsData),
     })
       .then((res) => {
-        alert('Новая новость успешно добавлена!')
         navigate(RoutePath.home)
       })
       .catch((err) => {

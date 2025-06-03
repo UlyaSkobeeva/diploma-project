@@ -1,5 +1,3 @@
-//посмотреть классы, переименовать функции, разделить компонент
-
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -36,6 +34,8 @@ export const News = (props: NewsProps) => {
   useEffect(() => {
     getNewsData()
   }, [])
+
+  //TODO добавить сортировку новостей вместе с годом и кнопку сортировки
 
   return (
     <div className={styles['news']}>

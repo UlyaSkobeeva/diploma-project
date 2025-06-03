@@ -12,3 +12,5 @@ export type { News } from './news'
 export type { Idea } from './idea'
 
 export { ButtonType } from './button-type'
+
+export { FormatType } from './format-type'

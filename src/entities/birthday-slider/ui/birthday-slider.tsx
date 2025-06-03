@@ -5,9 +5,11 @@ import 'slick-carousel/slick/slick-theme.css'
 
 import styles from './birthday-slider.module.css'
 import { WorkerData } from '../../../shared/types'
+import { formatDate } from '../../../shared/lib/utils/format-date'
+
+import { getUpcomingBirthdayDates } from '../lib/utils/get-upcoming-birthday-dates'
 
 export const BirthdaySlider = () => {
-  //получение данных с сервера
   const [workers, setWorkers] = useState<WorkerData[]>([])
 
   //получение данных с сервера
@@ -27,28 +29,31 @@ export const BirthdaySlider = () => {
 
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
   }
+
+  //TODO сортировка дат (только месяц и день)
+  const filteredWorkers = getUpcomingBirthdayDates(workers)
 
   return (
     <div className={styles['birthday-slider']}>
       <h2 className={styles['birthday-slider__title']}>Дни рождения</h2>
       <ul className={styles['birthday-slider__list']}>
         <Slider {...settings}>
-          {workers?.map((worker) => {
+          {filteredWorkers?.map(({ id, img, name, date }) => {
             return (
-              <li className={styles['birthday-slider__item']} key={worker.id}>
+              <li className={styles['birthday-slider__item']} key={id}>
                 <div className={styles['image-container']}>
                   <div className={styles['image']}>
-                    <img src={worker.img} alt="" />
+                    <img src={img} alt="" />
                   </div>
                 </div>
 
-                <p className={styles['name-info']}>{worker.name}</p>
-                <p className={styles['age-info']}>{worker.birthday}</p>
+                <p className={styles['name-info']}>{name}</p>
+                <p className={styles['age-info']}>{formatDate(date)}</p>
               </li>
             )
           })}

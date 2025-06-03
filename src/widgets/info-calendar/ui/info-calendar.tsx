@@ -15,7 +15,6 @@ export const InfoCalendar = (props: InfoCalendarProps) => {
 
   const navigate = useNavigate()
 
-  //получить данные с сервера
   const getCalendarData = () => {
     fetch('/api/calendar')
       .then((response) => {

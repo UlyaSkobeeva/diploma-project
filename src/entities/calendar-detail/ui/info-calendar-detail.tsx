@@ -5,6 +5,7 @@ import { Button } from '../../../shared/ui/button'
 import styles from './info-calendar-detail.module.css'
 import { Calendar } from '../../../shared/types/calendar'
 import { RoutePath } from '../../../shared/types/route-path'
+import { formatShortDate } from '../../../shared/lib/utils/format-date'
 
 export const InfoCalendarDetail = () => {
   const { calenid } = useParams()
@@ -30,7 +31,7 @@ export const InfoCalendarDetail = () => {
     <div className={styles['info-calendar-detail']}>
       <div className={styles['info-calendar-detail__container']}>
         <div className={styles['info-calendar-detail__date']}>
-          {calendars?.date}
+          {calendars?.date && formatShortDate(calendars?.date)}
         </div>
         <h2 className={styles['info-calendar-detail__title']}>
           {calendars?.title}

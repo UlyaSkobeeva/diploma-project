@@ -5,6 +5,7 @@ import styles from './news-detail.module.css'
 import { Button } from '../../../shared/ui/button'
 import { News } from '../../../shared/types'
 import { RoutePath } from '../../../shared/types/route-path'
+import { formatLongDate } from '../../../shared/lib/utils/format-date'
 
 export const NewsDetail = () => {
   const { newsid } = useParams()
@@ -34,6 +35,9 @@ export const NewsDetail = () => {
           <div className={styles['description']}>{newsData?.description}</div>
           <img className={styles['image']} src={newsData?.img} alt="" />
           <div className={styles['details']}>{newsData?.details}</div>
+          <div className={styles['date']}>
+            {newsData?.date && formatLongDate(newsData.date)}
+          </div>
         </div>
         <div className={styles['detail-cancel']}>
           <Button onClick={() => navigate(RoutePath.home)}>Назад</Button>

@@ -48,8 +48,7 @@ export const HeaderLayout = (props: LayoutProps) => {
     }
   }
 
-  //Активная ссылка
-  const setActive = ({ isActive }: ActiveLink): string =>
+  const setActiveLink = ({ isActive }: ActiveLink): string =>
     classNames(
       styles['header-menu__link'],
       isActive && styles['header-menu__link--active'],
@@ -75,7 +74,7 @@ export const HeaderLayout = (props: LayoutProps) => {
           <ul className={styles['header-menu__list']}>
             {menuItems.map(({ path, label }) => (
               <li className={styles['header-menu__item']} key={path}>
-                <NavLink to={path} className={setActive}>
+                <NavLink to={path} className={setActiveLink}>
                   {label}
                 </NavLink>
               </li>
