@@ -1,15 +1,13 @@
 import { Outlet } from 'react-router-dom'
 
 import '../../../App.css'
-import { LayoutProps } from '../../types'
+
 import { HeaderLayout } from '../header-layout/header-layout'
 
-export const Layout = (props: LayoutProps) => {
-  const { user } = props
-
+export const Layout = () => {
   return (
     <>
-      <HeaderLayout user={user} />
+      <HeaderLayout />
 
       <main>
         <Outlet />

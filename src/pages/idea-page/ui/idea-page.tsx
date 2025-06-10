@@ -1,23 +1,19 @@
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useContext, useState } from 'react'
 
 import { CustomForm } from '../../../shared/ui/custom-form'
-import { Button } from '../../../shared/ui/button'
-
-import { FieldType, Idea } from '../../../shared/types'
-
+import { FieldType } from '../../../shared/types'
 import { IdeaList } from '../../../features/idea/idea-list'
-
-import { IdeaPageProps } from '../types'
 import styles from './idea-page.module.css'
 
 import { useAppDispatch } from '../../../shared/lib/utils/use-app'
 import { addIdea } from '../../../app/store/ideas/ideas-action'
 import { StatusSwitcher } from '../../../features/idea/status-switcher'
+import { Context } from '../../../app/App'
 
-export const IdeaPage = (props: IdeaPageProps) => {
-  const { user } = props
-
+export const IdeaPage = () => {
   const [titleOfIdea, setTitleOfIdea] = useState<string>('')
+
+  const user = useContext(Context)
 
   const dispatch = useAppDispatch()
 

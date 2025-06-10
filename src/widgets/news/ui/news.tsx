@@ -1,17 +1,18 @@
-import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import styles from './news.module.css'
 
 import { Button } from '../../../shared/ui/button'
 import { NewsList } from '../../../features/news/news-list'
-import { NewsProps } from '../types/news-props'
+
 import { RoutePath } from '../../../shared/types/route-path'
+import { Context } from '../../../app/App'
+import { useContext } from 'react'
 
-export const News = (props: NewsProps) => {
-  const { user } = props
-
+export const News = () => {
   const navigate = useNavigate()
+
+  const user = useContext(Context)
 
   return (
     <div className={styles['news']}>

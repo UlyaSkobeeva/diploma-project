@@ -1,4 +1,4 @@
-import { Idea, User } from '../../../../shared/types'
+import { User } from '../../../../shared/types'
 
 export interface IdeaListProps {
   user: User | null

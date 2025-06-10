@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { LoginPage } from '../pages/login-page'
 
@@ -7,9 +7,9 @@ import { User } from '../shared/types'
 
 import { Router } from './router'
 
-export default function App() {
-  //TODO user запихнуть в контекст
+export const Context = React.createContext<User | null>(null)
 
+export default function App() {
   const [isAuth, setAuth] = useState<boolean>(false)
   const [user, setUser] = useState<User | null>(null)
 
@@ -59,5 +59,9 @@ export default function App() {
     return <LoginPage logIn={LogIn} validUser={validUser} />
   }
 
-  return <Router user={user} />
+  return (
+    <Context.Provider value={user}>
+      <Router />
+    </Context.Provider>
+  )
 }

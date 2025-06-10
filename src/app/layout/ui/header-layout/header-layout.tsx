@@ -1,17 +1,18 @@
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import classNames from 'classnames'
 
 import styles from './header-layout.module.css'
-import { ActiveLink, LayoutProps } from '../../types'
+import { ActiveLink } from '../../types'
 import { UseClickOutside } from '../../lib/utils/use-click-outside'
 import { MENU_ITEMS } from '../../lib/constants/menu-items'
 import { RoutePath } from '../../../../shared/types/route-path'
+import { Context } from '../../../App'
 
-export const HeaderLayout = (props: LayoutProps) => {
-  const { user } = props
-
+export const HeaderLayout = () => {
   const [isOpenBurger, setOpenBurger] = useState<boolean>()
+
+  const user = useContext(Context)
 
   useEffect(() => {
     let startTouchY = 0

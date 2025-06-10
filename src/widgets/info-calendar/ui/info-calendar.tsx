@@ -5,9 +5,10 @@ import { InfoCalendarList } from '../../../features/info-calendar/info-calendar-
 import { RoutePath } from '../../../shared/types/route-path'
 import { InfoCalendarProps } from '../types'
 import styles from './info-calendar.module.css'
-export const InfoCalendar = (props: InfoCalendarProps) => {
-  const { user } = props
-
+import { Context } from '../../../app/App'
+import { useContext } from 'react'
+export const InfoCalendar = () => {
+  const user = useContext(Context)
   const navigate = useNavigate()
 
   return (

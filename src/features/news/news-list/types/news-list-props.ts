@@ -1,4 +1,4 @@
-import { News, User } from '../../../../shared/types'
+import { User } from '../../../../shared/types'
 
 export interface NewsListProps {
   user: User | null

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 import { Button } from '../../../shared/ui/button'
 import { SearchWorkerComponent } from '../../../features/worker/search-form'
@@ -9,13 +9,14 @@ import {
   useAppDispatch,
   useAppSelector,
 } from '../../../shared/lib/utils/use-app'
-import { WorkerPageProps } from '../types'
+
 import styles from './worker-page.module.css'
 import { fetchWorkers } from '../../../app/store/workers/workers-action'
 import { workerSelector } from '../../../app/store/workers/workers-slice'
+import { Context } from '../../../app/App'
 
-export const WorkerPage = (props: WorkerPageProps) => {
-  const { user } = props
+export const WorkerPage = () => {
+  const user = useContext(Context)
 
   const workers = useAppSelector(workerSelector)
   const dispatch = useAppDispatch()
