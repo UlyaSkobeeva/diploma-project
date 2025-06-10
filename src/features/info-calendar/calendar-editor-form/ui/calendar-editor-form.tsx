@@ -6,13 +6,26 @@ import { CalendarEditorFormProps } from '../types'
 import { Calendar, FieldType } from '../../../../shared/types'
 import { RoutePath } from '../../../../shared/types/route-path'
 
+import {
+  addCalendar,
+  fetchCalendarById,
+  updateCalendar,
+} from '../../../../app/store/calendars/calendars-action'
+import {
+  useAppDispatch,
+  useAppSelector,
+} from '../../../../shared/lib/utils/use-app'
+import { CalendarByIdSelector } from '../../../../app/store/calendars/calendars-slice'
+
 export const CalendarEditorForm = (props: CalendarEditorFormProps) => {
   const { isCreate } = props
   const { calendarId } = useParams()
 
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+  const storeCalendar = useAppSelector(CalendarByIdSelector)
 
-  const [calendarData, setCalendarData] = useState<Calendar>({
+  const [calendarData, setCalendarData] = useState<Omit<Calendar, 'id'>>({
     date: '',
     title: '',
     description: '',
@@ -20,41 +33,23 @@ export const CalendarEditorForm = (props: CalendarEditorFormProps) => {
   })
 
   useEffect(() => {
-    !isCreate &&
-      fetch('/api/calendar/' + calendarId)
-        .then((res) => {
-          return res.json()
-        })
-        .then((resp) => {
-          setCalendarData({
-            date: resp.date,
-            title: resp.title,
-            description: resp.description,
-            details: resp.details,
-          })
-        })
-        .catch((err) => {
-          console.log(err.message)
-        })
-  }, [])
+    !isCreate && dispatch(fetchCalendarById(Number(calendarId)))
+  }, [dispatch, isCreate, calendarId])
+
+  useEffect(() => {
+    !isCreate && storeCalendar && setCalendarData(storeCalendar)
+  }, [storeCalendar])
 
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    fetch(isCreate ? '/api/calendar' : `/api/calendar/${calendarId}`, {
-      method: isCreate ? 'POST' : 'PUT',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(calendarData),
-    })
-      .then((res) => {
-        isCreate
-          ? alert('Информация о новом событии успешно добавлена!')
-          : alert('Информация изменена!')
-        navigate(RoutePath.home)
-      })
-      .catch((err) => {
-        console.log(err.message)
-      })
+    if (isCreate) {
+      dispatch(addCalendar(calendarData))
+    } else {
+      dispatch(updateCalendar(calendarData as Calendar))
+    }
+
+    navigate(RoutePath.home)
   }
 
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) =>

@@ -1,30 +1,25 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 import styles from './birthday-slider.module.css'
-import { WorkerData } from '../../../shared/types'
 import { formatDate } from '../../../shared/lib/utils/format-date'
 
 import { getUpcomingBirthdayDates } from '../lib/utils/get-upcoming-birthday-dates'
+import {
+  useAppDispatch,
+  useAppSelector,
+} from '../../../shared/lib/utils/use-app'
+import { fetchWorkers } from '../../../app/store/workers/workers-action'
+import { workerSelector } from '../../../app/store/workers/workers-slice'
 
 export const BirthdaySlider = () => {
-  const [workers, setWorkers] = useState<WorkerData[]>([])
+  const dispatch = useAppDispatch()
+  const workers = useAppSelector(workerSelector)
 
-  //получение данных с сервера
-  //TODO убрать запрос, подключить редакс
   useEffect(() => {
-    fetch('/api/worker')
-      .then((res) => {
-        return res.json()
-      })
-      .then((resp) => {
-        setWorkers(resp)
-      })
-      .catch((err) => {
-        console.log(err.message)
-      })
+    !workers.length && dispatch(fetchWorkers())
   }, [])
 
   const settings = {
@@ -35,7 +30,6 @@ export const BirthdaySlider = () => {
     slidesToScroll: 1,
   }
 
-  //TODO сортировка дат (только месяц и день)
   const filteredWorkers = getUpcomingBirthdayDates(workers)
 
   return (

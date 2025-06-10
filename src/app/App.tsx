@@ -8,8 +8,12 @@ import { User } from '../shared/types'
 import { Router } from './router'
 
 export default function App() {
+  //TODO user запихнуть в контекст
+
   const [isAuth, setAuth] = useState<boolean>(false)
   const [user, setUser] = useState<User | null>(null)
+
+  const [validUser, setValidUser] = useState<boolean>(true)
 
   useEffect(() => {
     const sessionStorageId = sessionStorage.getItem(AUTH_KEY)
@@ -22,7 +26,6 @@ export default function App() {
         return res.json()
       })
       .then((usersDB: User[]) => {
-        // console.log(usersDB)
         const userAuth = usersDB.find(
           (userItem) => userItem.id === sessionStorageId,
         )
@@ -34,25 +37,26 @@ export default function App() {
   }, [])
 
   const LogIn = async (login: string, password: string) => {
-    // console.log('Нажала на кнопку', login, pas)
     const response = await fetch('/api/systemUsers/')
     const users: User[] = await response.json()
-    // console.log(users)
     const userFromDB = users.find(
       (item) => item.login === login && item.password === password,
     )
-    // console.log(userFromDB)
+
     if (userFromDB) {
       sessionStorage.setItem(AUTH_KEY, userFromDB.id)
       setAuth(true)
       setUser(userFromDB)
+      setValidUser(true)
     } else {
-      alert('Введен неверный логин или пароль! Повторите попытку!')
+      //TODO модальное окно
+      // alert('Введен неверный логин или пароль! Повторите попытку!')
+      setValidUser(false)
     }
   }
 
   if (!isAuth) {
-    return <LoginPage logIn={LogIn} />
+    return <LoginPage logIn={LogIn} validUser={validUser} />
   }
 
   return <Router user={user} />

@@ -9,6 +9,6 @@ export const changingInputState = <T extends object>(
   const { name, value } = event.target
   setData((prev) => ({
     ...prev,
-    [name]: value.trimStart(), // Очищает пробелы только в начале строки
+    [name]: value.trimStart(),
   }))
 }

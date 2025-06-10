@@ -8,13 +8,26 @@ import { FieldType, WorkerData } from '../../../../shared/types'
 import { WorkerEditorFormProps } from '../types'
 import { RoutePath } from '../../../../shared/types/route-path'
 
+import {
+  addWorker,
+  fetchWorkerById,
+  updateWorker,
+} from '../../../../app/store/workers/workers-action'
+import {
+  useAppDispatch,
+  useAppSelector,
+} from '../../../../shared/lib/utils/use-app'
+import { workerByIdSelector } from '../../../../app/store/workers/workers-slice'
+
 export const WorkerEditorForm = (props: WorkerEditorFormProps) => {
   const { isCreate } = props
   const { workerId } = useParams()
 
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+  const workerStore = useAppSelector(workerByIdSelector)
 
-  const [workerData, setWorkerData] = useState<WorkerData>({
+  const [workerData, setWorkerData] = useState<Omit<WorkerData, 'id'>>({
     name: '',
     job: '',
     number: '',
@@ -24,45 +37,22 @@ export const WorkerEditorForm = (props: WorkerEditorFormProps) => {
   })
 
   useEffect(() => {
-    !isCreate &&
-      fetch('/api/worker/' + workerId)
-        .then((res) => {
-          return res.json()
-        })
-        .then((resp) => {
-          setWorkerData({
-            name: resp.name,
-            job: resp.job,
-            number: resp.number,
-            mail: resp.mail,
-            date: resp.date,
-            img: resp.img,
-          })
-        })
-        .catch((err) => {
-          console.log(err.message)
-        })
-  }, [])
+    !isCreate && dispatch(fetchWorkerById(Number(workerId)))
+  }, [dispatch, isCreate, workerId])
+
+  useEffect(() => {
+    !isCreate && workerStore && setWorkerData(workerStore)
+  }, [workerStore])
 
   const handlesubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    fetch(isCreate ? '/api/worker' : `/api/worker/${workerId}`, {
-      method: isCreate ? 'POST' : 'PUT',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(workerData),
-    })
-      .then((res) => {
-        alert(
-          isCreate
-            ? 'Информация о новом сотруднике успешно добавлена!'
-            : 'Информация изменена!',
-        )
-        navigate(RoutePath.worker)
-      })
-      .catch((err) => {
-        console.log(err.message)
-      })
+    if (isCreate) {
+      dispatch(addWorker(workerData))
+    } else {
+      dispatch(updateWorker(workerData as WorkerData))
+    }
+    navigate(RoutePath.worker)
   }
 
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) =>

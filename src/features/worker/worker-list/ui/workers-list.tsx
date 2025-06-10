@@ -6,24 +6,19 @@ import { WorkersListProps } from '../types'
 import { Button } from '../../../../shared/ui/button'
 import { RoutePath } from '../../../../shared/types/route-path'
 import { formatDate } from '../../../../shared/lib/utils/format-date'
+import { useAppDispatch } from '../../../../shared/lib/utils/use-app'
+import { removeWorker } from '../../../../app/store/workers/workers-action'
 
 export const WorkersList = (props: WorkersListProps) => {
-  const { filteredWorkers, user, getWorkerData } = props
+  const { filteredWorkers, user } = props
 
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
 
-  const removeWorker = (id?: number) => {
+  const handleRemoveWorker = (id: number) => {
+    //TODO модальное окно
     if (window.confirm('Вы точно хотите удалить эту запись?')) {
-      fetch('/api/worker/' + id, {
-        method: 'DELETE',
-      })
-        .then((res) => {
-          // alert("Данные были удалены")
-          getWorkerData()
-        })
-        .catch((err) => {
-          console.log(err.message)
-        })
+      dispatch(removeWorker(id))
     }
   }
 
@@ -42,14 +37,16 @@ export const WorkersList = (props: WorkersListProps) => {
               <h4>Должность: {job}</h4>
               <h4>Телефон: {number}</h4>
               <h4>Эл. почта: {mail}</h4>
-              <h4>Дата рождения: {formatDate(date)}</h4>
+              <h4>Дата рождения: {date !== '' && formatDate(date)}</h4>
 
               {user?.isAdmin && (
                 <>
                   <Button onClick={() => navigate(RoutePath.workerEdit + id)}>
                     Изменить
                   </Button>
-                  <Button onClick={() => removeWorker(id)}>Удалить</Button>
+                  <Button onClick={() => handleRemoveWorker(id)}>
+                    Удалить
+                  </Button>
                 </>
               )}
             </div>

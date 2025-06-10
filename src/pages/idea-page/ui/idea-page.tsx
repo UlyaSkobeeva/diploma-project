@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 
 import { CustomForm } from '../../../shared/ui/custom-form'
 import { Button } from '../../../shared/ui/button'
@@ -10,40 +10,24 @@ import { IdeaList } from '../../../features/idea/idea-list'
 import { IdeaPageProps } from '../types'
 import styles from './idea-page.module.css'
 
+import { useAppDispatch } from '../../../shared/lib/utils/use-app'
+import { addIdea } from '../../../app/store/ideas/ideas-action'
+import { StatusSwitcher } from '../../../features/idea/status-switcher'
+
 export const IdeaPage = (props: IdeaPageProps) => {
   const { user } = props
 
-  const [ideas, setIdeas] = useState<Idea[]>([])
   const [titleOfIdea, setTitleOfIdea] = useState<string>('')
 
-  const getIdeas = async () => {
-    await fetch('/api/idea?_sort=id&_order=desc')
-      .then((res) => res.json())
-      .then((data) => setIdeas(data))
-  }
-
-  useEffect(() => {
-    getIdeas()
-  }, [])
-
-  const handleFilter = async (value: string) => {
-    await fetch(`/api/idea?isDone=${value}`)
-      .then((res) => res.json())
-      .then((data) => setIdeas(data))
-  }
+  const dispatch = useAppDispatch()
 
   const handlesubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     const idea = { titleOfIdea, isDone: false }
 
-    await fetch('/api/idea', {
-      method: 'POST',
-      headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify(idea),
-    })
+    dispatch(addIdea(idea))
     setTitleOfIdea('')
-    getIdeas()
   }
 
   const fields = [
@@ -69,15 +53,9 @@ export const IdeaPage = (props: IdeaPageProps) => {
         buttonsClassName={styles['idea-page__button']}
       />
 
-      {/* может как-то переделать фильтрацию, когда подключу редакс  */}
       <div className={styles['idea-page__container']}>
-        <div className={styles['controls__button']}>
-          <Button onClick={() => handleFilter('false')}>В работе</Button>
-          <Button onClick={() => handleFilter('true')}>Выполнено</Button>
-          <Button onClick={() => getIdeas()}>ВСЕ</Button>
-        </div>
-
-        <IdeaList ideas={ideas} getIdeas={getIdeas} user={user} />
+        <StatusSwitcher />
+        <IdeaList user={user} />
       </div>
     </>
   )

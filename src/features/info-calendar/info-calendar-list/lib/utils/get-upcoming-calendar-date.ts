@@ -20,7 +20,8 @@ export const getUpcomingCalendarDates = (elements: Calendar[]): Calendar[] => {
     const birthdayDate = dayjs(element.date).startOf('day')
 
     const hasElement =
-      birthdayDate.isAfter(todayDate) && birthdayDate.isBefore(nextDate)
+      birthdayDate.isSame(todayDate) ||
+      (birthdayDate.isAfter(todayDate) && birthdayDate.isBefore(nextDate))
 
     hasElement && filteredElements.push(element)
   })

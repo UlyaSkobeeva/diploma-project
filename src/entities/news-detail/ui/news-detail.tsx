@@ -1,30 +1,27 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import styles from './news-detail.module.css'
 import { Button } from '../../../shared/ui/button'
-import { News } from '../../../shared/types'
 import { RoutePath } from '../../../shared/types/route-path'
 import { formatLongDate } from '../../../shared/lib/utils/format-date'
+import {
+  useAppDispatch,
+  useAppSelector,
+} from '../../../shared/lib/utils/use-app'
+import { NewsByIdSelector } from '../../../app/store/news/news-slice'
+import { fetchNewsById } from '../../../app/store/news/news-action'
 
 export const NewsDetail = () => {
-  const { newsid } = useParams()
+  const { newsId } = useParams()
 
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
 
-  const [newsData, setNewsData] = useState<News | null>(null)
+  const newsData = useAppSelector(NewsByIdSelector)
 
   useEffect(() => {
-    fetch('/api/news/' + newsid)
-      .then((res) => {
-        return res.json()
-      })
-      .then((resp) => {
-        setNewsData(resp)
-      })
-      .catch((err) => {
-        console.log(err.message)
-      })
+    dispatch(fetchNewsById(Number(newsId)))
   }, [])
 
   return (

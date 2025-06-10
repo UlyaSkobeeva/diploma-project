@@ -17,8 +17,8 @@ import { NewsDetail } from '../../../entities/news-detail'
 import { RoutePath } from '../../../shared/types/route-path'
 import { RouterProps } from '../types'
 
-// import { CompanyPage } from '../../../pages/company-page' //РЕФАКТОРИНГА СТРАНИЦЫ ПОКА НЕ БУДЕТ
-// import Admin from '../../../pages/AdminPage/AdminPage' //РЕФАКТОРИНГА СТРАНИЦЫ ПОКА НЕ БУДЕТ
+// import { CompanyPage } from '../../../pages/company-page' //скрыто
+// import Admin from '../../../pages/AdminPage/AdminPage' //скрыто
 
 export const Router = (props: RouterProps) => {
   const { user } = props
@@ -32,7 +32,7 @@ export const Router = (props: RouterProps) => {
           element={<CalendarEditorForm isCreate />}
         />
         <Route
-          path={`${RoutePath.calendarDetail}:calenid`}
+          path={`${RoutePath.calendarDetail}:calendarId`}
           element={<InfoCalendarDetail />}
         />
         <Route
@@ -45,7 +45,7 @@ export const Router = (props: RouterProps) => {
           element={<NewsEditorForm isCreate />}
         />
         <Route
-          path={`${RoutePath.newsDetail}:newsid`}
+          path={`${RoutePath.newsDetail}:newsId`}
           element={<NewsDetail />}
         />
         <Route
@@ -70,7 +70,7 @@ export const Router = (props: RouterProps) => {
         <Route path={RoutePath.info} element={<InfoPage />} />
         <Route path={RoutePath.idea} element={<IdeaPage user={user} />} />
 
-        {/* рефакторинга страниц пока не будет */}
+        {/* скрыто */}
         {/* <Route path={RoutePath.company} element={<CompanyPage />} /> */}
         {/* <Route path={RoutePath.admin} element={<Admin />} /> */}
       </Route>

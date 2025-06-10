@@ -1,5 +1,5 @@
 export interface News {
-  id?: number
+  id: number
   smallImg: string
   smallTitle: string
   title: string

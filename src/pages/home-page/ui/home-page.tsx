@@ -9,10 +9,6 @@ import styles from './home-page.module.css'
 export const HomePage = (props: HomePageProps) => {
   const { user } = props
 
-  //TODO сделать запрос к сотрудникам
-  //сохранить в редаксе
-  //выводить где надо через useSelector
-
   return (
     <div className={styles['home-page']}>
       <div className={styles['info']}>

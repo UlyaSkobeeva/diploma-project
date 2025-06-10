@@ -13,10 +13,9 @@ export const HeaderLayout = (props: LayoutProps) => {
 
   const [isOpenBurger, setOpenBurger] = useState<boolean>()
 
-  //закрыть бургер по свайпу
   useEffect(() => {
-    let startTouchY = 0 //начало свайпа
-    let endTouchY = 0 //окончание свайпа
+    let startTouchY = 0
+    let endTouchY = 0
 
     const handleTouchStart = (event: TouchEvent) => {
       startTouchY = event.changedTouches[0].pageY
@@ -29,11 +28,9 @@ export const HeaderLayout = (props: LayoutProps) => {
 
     document.addEventListener('touchstart', handleTouchStart)
 
-    //закрыть когда проводим снизу вверх
     document.addEventListener('touchend', handleTouchEnd)
   }, [])
 
-  //Закрыть хедер по нажатию вне области
   const menuRef = useRef<HTMLElement | null>(null)
 
   UseClickOutside(menuRef, () => {

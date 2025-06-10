@@ -5,16 +5,12 @@ import styles from './document-page.module.css'
 export const DocumentPage = () => {
   const saveFile = async (id: string): Promise<void> => {
     const response = await fetch('/api/files/')
-    // console.log(response)
     const files = await response.json()
-    // console.log(files)
-    // console.log(files.docs)
     const link = document.createElement('a')
-    // console.log('link', link)
+
     link.href = files[id].file
     link.download = files[id].fileName
     link.click()
-    // console.log(id)
   }
 
   return (

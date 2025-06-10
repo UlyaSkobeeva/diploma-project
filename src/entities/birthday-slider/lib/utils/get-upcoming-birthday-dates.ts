@@ -35,5 +35,11 @@ export const getUpcomingBirthdayDates = (
     }
   })
 
+  filteredElements.sort(
+    (a, b) =>
+      dayjs(a.date).month() - dayjs(b.date).month() ||
+      dayjs(a.date).date() - dayjs(b.date).date(),
+  )
+
   return filteredElements
 }

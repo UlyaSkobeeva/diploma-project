@@ -12,7 +12,6 @@ export const Layout = (props: LayoutProps) => {
       <HeaderLayout user={user} />
 
       <main>
-        {/* содержимое всех страниц находится в main */}
         <Outlet />
       </main>
     </>

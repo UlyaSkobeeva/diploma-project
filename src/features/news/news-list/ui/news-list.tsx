@@ -4,25 +4,34 @@ import { Button } from '../../../../shared/ui/button'
 import styles from './news-list.module.css'
 import { NewsListProps } from '../types/news-list-props'
 import { RoutePath } from '../../../../shared/types/route-path'
+import { useEffect } from 'react'
+import {
+  useAppDispatch,
+  useAppSelector,
+} from '../../../../shared/lib/utils/use-app'
+import { fetchNews, removeNews } from '../../../../app/store/news/news-action'
+import { NewsSelector } from '../../../../app/store/news/news-slice'
+import dayjs from 'dayjs'
 
 export const NewsList = (props: NewsListProps) => {
-  const { user, news, getNewsData } = props
+  const { user } = props
 
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+  const newsStore = useAppSelector(NewsSelector)
 
-  const removeNewItem = (id?: number) => {
-    if (window.confirm('Вы точно хотите удалить эту запись?')) {
-      fetch('/api/news/' + id, {
-        method: 'DELETE',
-      })
-        .then(() => {
-          getNewsData()
-        })
-        .catch((err) => {
-          console.log(err.message)
-        })
-    }
+  useEffect(() => {
+    !newsStore.length && dispatch(fetchNews())
+  }, [])
+
+  const removeNewItem = (id: number) => {
+    //TODO модальное окно
+    dispatch(removeNews(id))
   }
+
+  const news = [...newsStore].sort((a, b) => {
+    return dayjs(b.date).valueOf() - dayjs(a.date).valueOf()
+  })
 
   return (
     <div className={styles['news__list']}>

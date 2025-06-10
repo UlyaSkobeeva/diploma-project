@@ -1,4 +1,4 @@
-//РЕФАКТОРИНГА СТРАНИЦЫ ПОКА НЕ БУДЕТ
+//СКРЫТО!!!
 
 // import { useState } from 'react'
 // import { useEffect } from 'react'

@@ -1,5 +1,5 @@
 export interface WorkerData {
-  id?: number
+  id: number
   name: string
   job: string
   number: string

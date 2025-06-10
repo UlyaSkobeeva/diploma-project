@@ -1,0 +1,21 @@
+.status-switcher {
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+  /* border-bottom: 1px solid #ccc; */
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #1c2c39;
+}
+
+.status-switcher span {
+  font-weight: 600;
+}
+
+.status-switcher select {
+  width: 150px;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}

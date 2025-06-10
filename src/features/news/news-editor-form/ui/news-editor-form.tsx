@@ -7,17 +7,28 @@ import { CustomForm } from '../../../../shared/ui/custom-form'
 import { FieldType, FormatType, News } from '../../../../shared/types'
 import { RoutePath } from '../../../../shared/types/route-path'
 import dayjs from 'dayjs'
+import {
+  useAppDispatch,
+  useAppSelector,
+} from '../../../../shared/lib/utils/use-app'
+import { NewsByIdSelector } from '../../../../app/store/news/news-slice'
+import {
+  addNews,
+  fetchNewsById,
+  updateNews,
+} from '../../../../app/store/news/news-action'
 
 export const NewsEditorForm = (props: NewsEditorFormProps) => {
   const { isCreate } = props
-
   const { newsId } = useParams()
 
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+  const storeNews = useAppSelector(NewsByIdSelector)
 
   const currentDate = isCreate ? dayjs().format(FormatType.api) : ''
 
-  const [newsData, setNewsData] = useState<News>({
+  const [newsData, setNewsData] = useState<Omit<News, 'id'>>({
     smallTitle: '',
     smallImg: '',
     title: '',
@@ -28,40 +39,22 @@ export const NewsEditorForm = (props: NewsEditorFormProps) => {
   })
 
   useEffect(() => {
-    !isCreate &&
-      fetch('/api/news/' + newsId)
-        .then((res) => {
-          return res.json()
-        })
-        .then((resp) => {
-          setNewsData({
-            smallTitle: resp.smallTitle,
-            smallImg: resp.smallImg,
-            title: resp.title,
-            description: resp.description,
-            details: resp.details,
-            img: resp.img,
-          })
-        })
-        .catch((err) => {
-          console.log(err.message)
-        })
-  }, [])
+    !isCreate && dispatch(fetchNewsById(Number(newsId)))
+  }, [dispatch, isCreate, newsId])
+
+  useEffect(() => {
+    !isCreate && storeNews && setNewsData(storeNews)
+  }, [storeNews])
 
   const handlesubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    fetch(isCreate ? '/api/news' : `/api/news/${newsId}`, {
-      method: isCreate ? 'POST' : 'PUT',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(newsData),
-    })
-      .then((res) => {
-        navigate(RoutePath.home)
-      })
-      .catch((err) => {
-        console.log(err.message)
-      })
+    if (isCreate) {
+      dispatch(addNews(newsData))
+    } else {
+      dispatch(updateNews(newsData as News))
+    }
+    navigate(RoutePath.home)
   }
 
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) =>

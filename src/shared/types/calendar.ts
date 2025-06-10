@@ -3,5 +3,5 @@ export interface Calendar {
   title: string
   description: string
   details: string
-  id?: number
+  id: number
 }

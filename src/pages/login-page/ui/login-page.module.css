@@ -6,6 +6,11 @@
   font-size: 32px;
 }
 
+.login-page__error {
+  text-align: center;
+  color: rgb(236, 7, 7);
+}
+
 @media (max-width: 650px) {
   .login-page__title {
     font-size: 22px;
