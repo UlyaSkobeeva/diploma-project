@@ -16,20 +16,18 @@ export const News = () => {
 
   return (
     <div className={styles['news']}>
-      <div className="container">
-        {user?.isAdmin && (
-          <Button
-            className={styles['news-create__button']}
-            onClick={() => navigate(RoutePath.newsCreate)}
-          >
-            Добавить новую новость
-          </Button>
-        )}
+      {user?.isAdmin && (
+        <Button
+          className={styles['news-create__button']}
+          onClick={() => navigate(RoutePath.newsCreate)}
+        >
+          Добавить новую новость
+        </Button>
+      )}
 
-        <h2 className={styles['news__logo']}>Последние новости</h2>
+      <h2 className={styles['news__logo']}>Последние новости</h2>
 
-        <NewsList user={user} />
-      </div>
+      <NewsList user={user} />
     </div>
   )
 }

@@ -1,16 +1,16 @@
 import { useContext, useEffect, useRef, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import classNames from 'classnames'
 
 import styles from './header-layout.module.css'
 import { ActiveLink } from '../../types'
-import { UseClickOutside } from '../../lib/utils/use-click-outside'
+import { useClickOutside } from '../../lib/utils/use-click-outside'
 import { MENU_ITEMS } from '../../lib/constants/menu-items'
 import { RoutePath } from '../../../../shared/types/route-path'
 import { Context } from '../../../App'
 
 export const HeaderLayout = () => {
-  const [isOpenBurger, setOpenBurger] = useState<boolean>()
+  const [isOpenBurger, setIsOpenBurger] = useState<boolean>(false)
 
   const user = useContext(Context)
 
@@ -24,21 +24,27 @@ export const HeaderLayout = () => {
 
     const handleTouchEnd = (event: TouchEvent) => {
       endTouchY = event.changedTouches[0].pageY
-      if (endTouchY < startTouchY) setOpenBurger(false)
+      if (endTouchY < startTouchY) setIsOpenBurger(false)
     }
 
     document.addEventListener('touchstart', handleTouchStart)
-
     document.addEventListener('touchend', handleTouchEnd)
+
+    return () => {
+      document.removeEventListener('touchstart', handleTouchStart)
+      document.removeEventListener('touchend', handleTouchEnd)
+    }
   }, [])
 
   const menuRef = useRef<HTMLElement | null>(null)
 
-  UseClickOutside(menuRef, () => {
-    if (isOpenBurger) setTimeout(() => setOpenBurger(false), 100)
+  useClickOutside(menuRef, () => {
+    if (isOpenBurger) {
+      setTimeout(() => setIsOpenBurger(false), 100)
+    }
   })
 
-  const LogOut = () => {
+  const logOut = () => {
     if (confirm('Вы точно хотите выйти?')) {
       sessionStorage.clear()
 
@@ -59,9 +65,7 @@ export const HeaderLayout = () => {
   return (
     <header className={styles['header']}>
       <div className={styles['header__container']}>
-        <a href="#" className={styles['header__title']}>
-          𝓞𝓾𝓻𝓣𝓮𝓪𝓶
-        </a>
+        <h1 className={styles['header__title']}>𝓞𝓾𝓻𝓣𝓮𝓪𝓶</h1>
         <nav
           className={classNames(
             styles['header-menu'],
@@ -80,7 +84,7 @@ export const HeaderLayout = () => {
 
             <li className={styles['header-menu__item']}>
               <a
-                onClick={LogOut}
+                onClick={logOut}
                 className={styles['header-menu__link--closing']}
               >
                 ⇒
@@ -94,7 +98,7 @@ export const HeaderLayout = () => {
             styles['burger'],
             isOpenBurger && styles['burger--active'],
           )}
-          onClick={() => setOpenBurger(!isOpenBurger)}
+          onClick={() => setIsOpenBurger(!isOpenBurger)}
         >
           <span></span>
         </div>

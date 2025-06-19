@@ -14,6 +14,7 @@ import styles from './worker-page.module.css'
 import { fetchWorkers } from '../../../app/store/workers/workers-action'
 import { workerSelector } from '../../../app/store/workers/workers-slice'
 import { Context } from '../../../app/App'
+import { formatDate } from '../../../shared/lib/utils/format-date'
 
 export const WorkerPage = () => {
   const user = useContext(Context)
@@ -27,9 +28,14 @@ export const WorkerPage = () => {
     !workers.length && dispatch(fetchWorkers())
   }, [])
 
-  // Фильтрация списка работников при изменении searchInput и workers
-  //Object.values(worker) - берет все значения без ключей и складывает в массив
-  const filteredWorkers = workers.filter((worker) =>
+  const workersWithModifiedDate = workers.map((worker) => {
+    return {
+      ...worker,
+      date: worker.date === '' ? '' : formatDate(worker.date),
+    }
+  })
+
+  const filteredWorkers = workersWithModifiedDate.filter((worker) =>
     Object.values(worker).some((value) =>
       String(value).toLowerCase().includes(searchInput.toLowerCase()),
     ),

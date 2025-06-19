@@ -1,18 +1,18 @@
-.list__info {
+.idea-list__info {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.list__info button {
+.idea-list__info button {
   margin-right: 10px;
 }
 
-.list__info button:hover {
+.idea-list__info button:hover {
   cursor: pointer;
 }
 
-.list__title {
+.idea-list__title {
   border: 1px solid #ccc;
   border-radius: 10px;
   margin: 10px 0;
@@ -20,6 +20,6 @@
   width: 100%;
 }
 
-.list__title--completed {
+.idea-list__title--completed {
   background-color: #78ae993c;
 }

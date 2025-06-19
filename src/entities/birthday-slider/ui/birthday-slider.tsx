@@ -37,20 +37,26 @@ export const BirthdaySlider = () => {
       <h2 className={styles['birthday-slider__title']}>Дни рождения</h2>
       <ul className={styles['birthday-slider__list']}>
         <Slider {...settings}>
-          {filteredWorkers?.map(({ id, img, name, date }) => {
-            return (
-              <li className={styles['birthday-slider__item']} key={id}>
-                <div className={styles['image-container']}>
-                  <div className={styles['image']}>
-                    <img src={img} alt="" />
+          {filteredWorkers.length ? (
+            filteredWorkers?.map(({ id, img, name, date }) => {
+              return (
+                <li className={styles['birthday-slider__item']} key={id}>
+                  <div className={styles['birthday-slider__image']}>
+                    <img src={img} alt="фото сотрудника" />
                   </div>
-                </div>
 
-                <p className={styles['name-info']}>{name}</p>
-                <p className={styles['age-info']}>{formatDate(date)}</p>
-              </li>
-            )
-          })}
+                  <p className={styles['birthday-slider__name']}>{name}</p>
+                  <p className={styles['birthday-slider__age']}>
+                    {formatDate(date)}
+                  </p>
+                </li>
+              )
+            })
+          ) : (
+            <p className={styles['birthday-slider--empty']}>
+              информация отствует
+            </p>
+          )}
         </Slider>
       </ul>
     </div>

@@ -1,4 +1,4 @@
-.title {
+.info-page-header__title {
   text-align: center;
   text-transform: uppercase;
   color: #2a4359;
@@ -6,21 +6,22 @@
 }
 
 @media (max-width: 650px) {
-  .title {
+  .info-page-header__title {
     font-size: 16px;
   }
 }
 
-.description {
+.info-page-header__description {
   text-align: center;
   color: #2a4359;
   margin-bottom: 16px;
 }
 
-.link {
+.info-page-header__link {
   font-weight: bold;
   text-decoration: underline;
 }
-.link:hover {
+
+.info-page-header__link:hover {
   color: #b39637;
 }

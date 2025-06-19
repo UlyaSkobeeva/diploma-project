@@ -61,7 +61,7 @@
   }
 }
 
-.description {
+.info-calendar-detail__description {
   max-width: 70%;
   line-height: 30px;
   letter-spacing: 1px;
@@ -69,13 +69,13 @@
 }
 
 @media (max-width: 650px) {
-  .description {
+  .info-calendar-detail__description {
     max-width: 90%;
     text-align: justify;
   }
 }
 
-.details {
+.info-calendar-detail__details {
   max-width: 70%;
   letter-spacing: 1px;
   color: #2a4359;
@@ -83,7 +83,7 @@
 }
 
 @media (max-width: 650px) {
-  .details {
+  .info-calendar-detail__details {
     max-width: 100%;
     margin-bottom: 10px;
   }

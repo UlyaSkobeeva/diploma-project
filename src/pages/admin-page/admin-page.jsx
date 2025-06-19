@@ -4,7 +4,7 @@
 // import { useEffect } from 'react'
 // import './Admin.css'
 
-// import styles from './Admin.module.css'
+// import styles from './admin.module.css'
 // import { CustomForm } from '../../shared/ui/custom-form'
 // import { Button } from '../../shared/ui/button'
 

@@ -29,14 +29,22 @@ export const NewsDetail = () => {
       <div className={styles['news-detail__container']}>
         <h2 className={styles['news-detail__title']}>{newsData?.title}</h2>
         <div className={styles['news-detail__content']}>
-          <div className={styles['description']}>{newsData?.description}</div>
-          <img className={styles['image']} src={newsData?.img} alt="" />
-          <div className={styles['details']}>{newsData?.details}</div>
-          <div className={styles['date']}>
+          <div className={styles['news-detail__description']}>
+            {newsData?.description}
+          </div>
+          <img
+            className={styles['news-detail__image']}
+            src={newsData?.img}
+            alt="фотография"
+          />
+          <div className={styles['news-detail__details']}>
+            {newsData?.details}
+          </div>
+          <div className={styles['news-detail__date']}>
             {newsData?.date && formatLongDate(newsData.date)}
           </div>
         </div>
-        <div className={styles['detail-cancel']}>
+        <div className={styles['news-detail__button']}>
           <Button onClick={() => navigate(RoutePath.home)}>Назад</Button>
         </div>
       </div>

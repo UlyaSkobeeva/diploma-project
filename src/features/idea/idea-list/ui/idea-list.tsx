@@ -57,27 +57,21 @@ export const IdeaList = (props: IdeaListProps) => {
   return (
     <>
       {sortedIdeas.map(({ id, isDone, titleOfIdea }) => (
-        <div key={id}>
-          <div className={styles['list__info']}>
-            <button onClick={() => updateIdea(id)} disabled={!user?.isAdmin}>
-              {isDone ? '✅' : '🕘'}
-            </button>
+        <div className={styles['idea-list__info']} key={id}>
+          <button onClick={() => updateIdea(id)} disabled={!user?.isAdmin}>
+            {isDone ? '✅' : '🕘'}
+          </button>
 
-            {user?.isAdmin && (
-              <button onClick={() => deleteIdea(id)} disabled={!user?.isAdmin}>
-                ❌
-              </button>
+          {user?.isAdmin && <button onClick={() => deleteIdea(id)}>❌</button>}
+
+          <p
+            className={classNames(
+              styles['idea-list__title'],
+              isDone && styles['idea-list__title--completed'],
             )}
-
-            <p
-              className={classNames(
-                styles['list__title'],
-                isDone && styles['list__title--completed'],
-              )}
-            >
-              {titleOfIdea}
-            </p>
-          </div>
+          >
+            {titleOfIdea}
+          </p>
         </div>
       ))}
     </>

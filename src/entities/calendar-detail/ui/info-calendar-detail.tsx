@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Button } from '../../../shared/ui/button'
 
@@ -34,8 +34,12 @@ export const InfoCalendarDetail = () => {
           {calendar?.title}
         </h2>
         <div className={styles['info-calendar-detail__content']}>
-          <div className={styles['description']}>{calendar?.description}</div>
-          <div className={styles['details']}>{calendar?.details}</div>
+          <div className={styles['info-calendar-detail__description']}>
+            {calendar?.description}
+          </div>
+          <div className={styles['info-calendar-detail__details']}>
+            {calendar?.details}
+          </div>
         </div>
 
         <div className={styles['info-calendar-detail__button']}>

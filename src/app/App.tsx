@@ -9,8 +9,8 @@ import { Router } from './router'
 
 export const Context = React.createContext<User | null>(null)
 
-export default function App() {
-  const [isAuth, setAuth] = useState<boolean>(false)
+export const App = () => {
+  const [isAuth, setIsAuth] = useState<boolean>(false)
   const [user, setUser] = useState<User | null>(null)
 
   const [validUser, setValidUser] = useState<boolean>(true)
@@ -30,13 +30,13 @@ export default function App() {
           (userItem) => userItem.id === sessionStorageId,
         )
         if (userAuth) {
-          setAuth(true)
+          setIsAuth(true)
           setUser(userAuth)
         }
       })
   }, [])
 
-  const LogIn = async (login: string, password: string) => {
+  const logIn = async (login: string, password: string) => {
     const response = await fetch('/api/systemUsers/')
     const users: User[] = await response.json()
     const userFromDB = users.find(
@@ -45,7 +45,7 @@ export default function App() {
 
     if (userFromDB) {
       sessionStorage.setItem(AUTH_KEY, userFromDB.id)
-      setAuth(true)
+      setIsAuth(true)
       setUser(userFromDB)
       setValidUser(true)
     } else {
@@ -56,7 +56,7 @@ export default function App() {
   }
 
   if (!isAuth) {
-    return <LoginPage logIn={LogIn} validUser={validUser} />
+    return <LoginPage logIn={logIn} validUser={validUser} />
   }
 
   return (

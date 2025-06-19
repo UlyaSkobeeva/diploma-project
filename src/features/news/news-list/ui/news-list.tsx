@@ -38,7 +38,13 @@ export const NewsList = (props: NewsListProps) => {
       {news.map(({ id, smallImg, smallTitle }) => (
         <div className={styles['news__item']} key={id}>
           <div className={styles['news__img']}>
-            <img src={smallImg} alt="" />
+            <img
+              src={
+                smallImg ||
+                'https://cdn-icons-png.flaticon.com/128/1629/1629161.png'
+              }
+              alt=""
+            />
           </div>
           <div className={styles['news__text']}>
             <p>{smallTitle}</p>

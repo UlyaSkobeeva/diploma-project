@@ -8,11 +8,7 @@
 
 .admin-item {
   border: 4px double #2a4359c4;
-  /* border-style: inset; */
-  /* rgba(211, 220, 50, 0.6); */
-  /* border:   ; */
   border-radius: 10px;
-  /* background-color: aqua; */
   padding: 10px 5px;
   margin-bottom: 20px;
   font-size: 18px;
@@ -24,8 +20,6 @@
 
 .auth-info {
   margin: 10px 0;
-  /* padding: 15px; */
-  /* word-wrap: break-word; */
   width: 100%;
 }
 
@@ -34,7 +28,6 @@
 }
 
 .admin-title {
-  /* background-color: blue; */
   border: 1px solid #ccc;
   padding: 5px;
   border-radius: 10px;
@@ -62,8 +55,6 @@
     margin-bottom: 0px;
   }
   .admin-button {
-    /* display: flex;
-    justify-content: space-between; */
     flex-direction: column;
     margin-left: 5px;
   }

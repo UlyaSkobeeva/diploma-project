@@ -17,7 +17,7 @@ import { NewsDetail } from '../../../entities/news-detail'
 import { RoutePath } from '../../../shared/types/route-path'
 
 // import { CompanyPage } from '../../../pages/company-page' //скрыто
-// import Admin from '../../../pages/AdminPage/AdminPage' //скрыто
+// import Admin from '../../../pages/admin-page/admin-page' //скрыто
 
 export const Router = () => {
   return (

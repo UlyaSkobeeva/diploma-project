@@ -8,13 +8,12 @@
 
 body {
   font-family: 'Karla', sans-serif;
-  /* margin: 0px; */
 }
 
 a,
 Link {
-  text-decoration: none; /*убрать подчеркивание*/
-  color: inherit; /*наследует цвет*/
+  text-decoration: none;
+  color: inherit;
 }
 
 input,
@@ -22,16 +21,8 @@ textarea,
 button,
 select,
 a {
-  -webkit-tap-highlight-color: transparent; /* убрать синее выделение вокруг кнопок*/
+  -webkit-tap-highlight-color: transparent;
 }
 ul {
-  list-style: none; /*убрать точки у списка*/
-}
-
-.container {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-  cursor: default;
+  list-style: none;
 }

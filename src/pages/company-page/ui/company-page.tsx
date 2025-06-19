@@ -1,6 +1,6 @@
 //СКРЫТО!!!
 
-// import './CompanyPage.css'
+// import './company-page.css'
 
 // export const CompanyPage = () => {
 //   return (

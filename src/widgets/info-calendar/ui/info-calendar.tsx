@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import { Button } from '../../../shared/ui/button'
 import { InfoCalendarList } from '../../../features/info-calendar/info-calendar-list'
 import { RoutePath } from '../../../shared/types/route-path'
-import { InfoCalendarProps } from '../types'
 import styles from './info-calendar.module.css'
 import { Context } from '../../../app/App'
 import { useContext } from 'react'
+
 export const InfoCalendar = () => {
   const user = useContext(Context)
   const navigate = useNavigate()

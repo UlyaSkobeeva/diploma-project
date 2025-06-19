@@ -56,7 +56,6 @@
   border-radius: 5px;
 }
 
-/* выделение активной ссылки */
 .header-menu__link--active {
   padding: 3px 10px;
   margin-bottom: 10px;
@@ -114,9 +113,6 @@
   }
 }
 
-/* бургер */
-
-/* БУРГЕР */
 .burger {
   display: none;
   position: relative;
@@ -125,6 +121,7 @@
   justify-content: flex-end;
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 
 .burger span {
@@ -132,10 +129,6 @@
   width: 80%;
   transform: scale(1);
   background-color: #ffffff;
-}
-
-.burger {
-  cursor: pointer;
 }
 
 .burger::before,

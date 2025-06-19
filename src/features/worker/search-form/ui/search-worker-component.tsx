@@ -9,7 +9,7 @@ export const SearchWorkerComponent = (props: SearchWorkerComponentProps) => {
     <div className={styles['search-worker-component']}>
       <img
         src="https://cdn-icons-png.flaticon.com/512/751/751463.png"
-        alt=""
+        alt="иконка"
         className={styles['search-worker-component__img']}
       />
       <input

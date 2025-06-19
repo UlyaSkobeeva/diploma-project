@@ -2,7 +2,6 @@
   font-size: 18px;
 }
 
-/* без important не переопределяются стили только здесь */
 .idea-page__button {
   justify-content: flex-start !important;
 }

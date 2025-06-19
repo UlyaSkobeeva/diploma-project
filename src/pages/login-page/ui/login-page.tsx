@@ -8,11 +8,11 @@ import { Field, FieldType } from '../../../shared/types'
 export const LoginPage = (props: LoginPageProps) => {
   const { logIn, validUser } = props
   const [login, setLogin] = useState<string>('')
-  const [pas, setPas] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
 
   const handlesubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    logIn(login, pas)
+    logIn(login, password)
   }
 
   const fields: Field[] = [
@@ -27,9 +27,10 @@ export const LoginPage = (props: LoginPageProps) => {
     {
       label: 'Введите пароль',
       type: FieldType.password,
-      name: 'pas',
-      value: pas,
-      onChange: (e: ChangeEvent<HTMLInputElement>) => setPas(e.target.value),
+      name: 'password',
+      value: password,
+      onChange: (e: ChangeEvent<HTMLInputElement>) =>
+        setPassword(e.target.value),
       required: true,
     },
   ]

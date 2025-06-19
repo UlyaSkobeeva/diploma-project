@@ -29,15 +29,20 @@ export const WorkersList = (props: WorkersListProps) => {
       {filteredWorkers.map(({ id, img, name, job, number, mail, date }) => {
         return (
           <div className={styles['workers-list__item']} key={id}>
-            <div className={styles['workers-list__item-img']}>
-              <img src={img} alt="" />
+            <div className={styles['workers-list__img']}>
+              <img
+                src={
+                  img || 'https://cdn-icons-png.flaticon.com/128/847/847969.png'
+                }
+                alt="фото сотрудника"
+              />
             </div>
-            <div className={styles['workers-list__item-info']}>
+            <div className={styles['workers-list__info']}>
               <h3>{name}</h3>
               <h4>Должность: {job}</h4>
               <h4>Телефон: {number}</h4>
               <h4>Эл. почта: {mail}</h4>
-              <h4>Дата рождения: {date !== '' && formatDate(date)}</h4>
+              <h4>Дата рождения: {date}</h4>
 
               {user?.isAdmin && (
                 <>

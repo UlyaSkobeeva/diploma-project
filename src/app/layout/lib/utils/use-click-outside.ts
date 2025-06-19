@@ -1,22 +1,22 @@
-/* Закрыть хедер по нажатию вне области */
-
 import { MutableRefObject, useEffect } from 'react'
 
-type Callback = () => void
+// Закрыть header при нажатии вне области
 
-export const UseClickOutside = (
+export const useClickOutside = (
   ref: MutableRefObject<HTMLElement | null>,
-  callback: Callback,
+  callback: () => void,
 ) => {
   const handleClick = (e: MouseEvent) => {
     if (ref.current && !ref.current.contains(e.target as Node)) {
       callback()
     }
   }
+
   useEffect(() => {
     document.addEventListener('mousedown', handleClick)
+
     return () => {
       document.removeEventListener('mousedown', handleClick)
     }
-  })
+  }, [callback])
 }

@@ -40,6 +40,8 @@ export const InfoCalendarList = (props: InfoCalendarListProps) => {
 
   return (
     <div className={styles['info-calendar__list']}>
+      {!filteredCalendars.length && <p> информация отствует </p>}
+
       {filteredCalendars.map(({ id, date, title }) => (
         <div className={styles['info-calendar__item']} key={id}>
           <div className={styles['info-calendar__description']}>
@@ -47,14 +49,14 @@ export const InfoCalendarList = (props: InfoCalendarListProps) => {
               {formatShortDate(date)}
             </div>
             <p className={styles['info-calendar__text']}>{title}</p>
-            <a
-              className={styles['info-calendar__link']}
+            <button
+              className={styles['info-calendar__button--navigation']}
               onClick={() => {
                 navigate(RoutePath.calendarDetail + id)
               }}
             >
               +
-            </a>
+            </button>
           </div>
 
           {user?.isAdmin && (
