@@ -4,6 +4,7 @@ import { Button } from '../../button'
 import { CustomFormProps } from '../types'
 import styles from './custom-form.module.css'
 import { ButtonType } from '../../../types'
+import { ChangeEvent } from 'react'
 
 export const CustomForm = (props: CustomFormProps) => {
   const {
@@ -25,28 +26,49 @@ export const CustomForm = (props: CustomFormProps) => {
       <form onSubmit={onSubmit}>
         {fields.map((field, index) => (
           <div key={index} className={styles['custom-form__item']}>
-            <label>{field.label}</label>
-            {field.type === 'textarea' ? (
-              <textarea
-                className={styles['custom-form__textarea']}
-                name={field.name}
-                value={field.value}
-                onChange={field.onChange}
-                placeholder={field.placeholder}
-                required={field.required}
-              />
-            ) : (
-              <input
-                className={styles['custom-form__input']}
-                type={field.type}
-                name={field.name}
-                value={field.value}
-                onChange={field.onChange}
-                placeholder={field.placeholder}
-                autoComplete="off"
-                required={field.required}
-              />
+            <label htmlFor={field.name}>{field.label}</label>
+            {field.needWarning && (
+              <span className={styles['custom-form__span--required']}>*</span>
             )}
+            <div className={styles['custom-form__wrapper']}>
+              {field.type === 'textarea' ? (
+                <textarea
+                  className={styles['custom-form__textarea']}
+                  name={field.name}
+                  value={field.value}
+                  onChange={field.onChange}
+                  placeholder={field.placeholder}
+                  required={field.required}
+                  id={field.name}
+                />
+              ) : (
+                <input
+                  className={styles['custom-form__input']}
+                  type={field.type}
+                  name={field.name}
+                  value={field.value}
+                  onChange={field.onChange}
+                  placeholder={field.placeholder}
+                  autoComplete="off"
+                  required={field.required}
+                  id={field.name}
+                />
+              )}
+              <button
+                className={styles['custom-form__button--cleaning']}
+                type="button"
+                onClick={() =>
+                  field.onChange({
+                    target: {
+                      name: field.name,
+                      value: '',
+                    },
+                  } as ChangeEvent<HTMLInputElement>)
+                }
+              >
+                ✕
+              </button>
+            </div>
           </div>
         ))}
         <div

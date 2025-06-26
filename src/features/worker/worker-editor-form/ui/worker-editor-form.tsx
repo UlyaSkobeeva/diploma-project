@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 import { CustomForm } from '../../../../shared/ui/custom-form'
 import { changingInputState } from '../../../../shared/lib/utils/changing-input-state'
-import { FieldType, WorkerData } from '../../../../shared/types'
+import { Field, FieldType, WorkerData } from '../../../../shared/types'
 
 import { WorkerEditorFormProps } from '../types'
 import { RoutePath } from '../../../../shared/types/route-path'
@@ -58,7 +58,7 @@ export const WorkerEditorForm = (props: WorkerEditorFormProps) => {
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) =>
     changingInputState(e, setWorkerData)
 
-  const fields = [
+  const fields: Field[] = [
     {
       label: 'ФИО',
       type: FieldType.text,
@@ -66,6 +66,7 @@ export const WorkerEditorForm = (props: WorkerEditorFormProps) => {
       value: workerData.name,
       onChange: handleChangeInput,
       required: true,
+      needWarning: true,
     },
     {
       label: 'Должность',
@@ -74,6 +75,7 @@ export const WorkerEditorForm = (props: WorkerEditorFormProps) => {
       value: workerData.job,
       onChange: handleChangeInput,
       required: true,
+      needWarning: true,
     },
     {
       label: 'Номер телефона',
@@ -102,7 +104,7 @@ export const WorkerEditorForm = (props: WorkerEditorFormProps) => {
       type: FieldType.text,
       name: 'img',
       value: workerData.img,
-      placeholder: 'URL-адрес',
+      placeholder: 'в формате https://...',
       onChange: handleChangeInput,
     },
   ]

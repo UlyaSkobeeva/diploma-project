@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { changingInputState } from '../../../../shared/lib/utils/changing-input-state'
 import { CustomForm } from '../../../../shared/ui/custom-form'
 import { CalendarEditorFormProps } from '../types'
-import { Calendar, FieldType } from '../../../../shared/types'
+import { Calendar, Field, FieldType } from '../../../../shared/types'
 import { RoutePath } from '../../../../shared/types/route-path'
 
 import {
@@ -55,7 +55,7 @@ export const CalendarEditorForm = (props: CalendarEditorFormProps) => {
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) =>
     changingInputState(e, setCalendarData)
 
-  const fields = [
+  const fields: Field[] = [
     {
       label: 'Заголовок',
       type: FieldType.text,
@@ -63,6 +63,7 @@ export const CalendarEditorForm = (props: CalendarEditorFormProps) => {
       value: calendarData.title,
       onChange: handleChangeInput,
       required: true,
+      needWarning: true,
     },
     {
       label: 'Дата',
@@ -71,6 +72,7 @@ export const CalendarEditorForm = (props: CalendarEditorFormProps) => {
       value: calendarData.date,
       onChange: handleChangeInput,
       required: true,
+      needWarning: true,
     },
     {
       label: 'Описание',

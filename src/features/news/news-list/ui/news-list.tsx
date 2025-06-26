@@ -25,8 +25,9 @@ export const NewsList = (props: NewsListProps) => {
   }, [])
 
   const removeNewItem = (id: number) => {
-    //TODO модальное окно
-    dispatch(removeNews(id))
+    if (window.confirm('Вы точно хотите удалить эту запись?')) {
+      dispatch(removeNews(id))
+    }
   }
 
   const news = [...newsStore].sort((a, b) => {
@@ -43,7 +44,7 @@ export const NewsList = (props: NewsListProps) => {
                 smallImg ||
                 'https://cdn-icons-png.flaticon.com/128/1629/1629161.png'
               }
-              alt=""
+              alt="картинка"
             />
           </div>
           <div className={styles['news__text']}>

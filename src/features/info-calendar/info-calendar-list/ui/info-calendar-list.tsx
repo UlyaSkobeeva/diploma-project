@@ -31,7 +31,9 @@ export const InfoCalendarList = (props: InfoCalendarListProps) => {
   }, [dispatch])
 
   const removeCalendarItem = (id: number) => {
-    dispatch(removeCalendar(id))
+    if (window.confirm('Вы точно хотите удалить эту запись?')) {
+      dispatch(removeCalendar(id))
+    }
   }
 
   const filteredCalendars = getUpcomingCalendarDates(calendars).sort(

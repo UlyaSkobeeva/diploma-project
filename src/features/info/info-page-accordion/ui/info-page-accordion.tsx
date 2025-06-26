@@ -22,7 +22,7 @@ export const InfoPageAccordion = () => {
           >
             <h2 className={styles['accordion__item-title']}>{item.question}</h2>
             <span className={styles['accordion__item-btn']}>
-              {selected === index ? '▲' : 'ᐁ'}
+              {selected === index ? '▲' : '▽'}
             </span>
           </div>
           <div

@@ -40,7 +40,6 @@ export const IdeaList = (props: IdeaListProps) => {
   }
 
   const deleteIdea = (id: number) => {
-    //TODO модальное окно
     if (window.confirm('Вы точно хотите удалить эту запись?')) {
       const todo = ideas.find((idea) => idea.id === id)
 

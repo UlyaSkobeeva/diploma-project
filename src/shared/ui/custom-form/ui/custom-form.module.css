@@ -16,11 +16,18 @@
   margin-bottom: 16px;
 }
 
+.custom-form__span--required {
+  color: red;
+  font-weight: 800;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
 .custom-form__input,
 .custom-form__textarea {
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 8px 16px;
+  padding: 8px 20px 8px 16px;
   width: 100%;
   margin-bottom: 5px;
   margin-top: 5px;
@@ -29,6 +36,19 @@
 
 .custom-form__textarea {
   min-height: 100px;
+}
+
+.custom-form__wrapper {
+  position: relative;
+}
+
+.custom-form__button--cleaning {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .custom-form__control-buttons {

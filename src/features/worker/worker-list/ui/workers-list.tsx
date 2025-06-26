@@ -16,7 +16,6 @@ export const WorkersList = (props: WorkersListProps) => {
   const dispatch = useAppDispatch()
 
   const handleRemoveWorker = (id: number) => {
-    //TODO модальное окно
     if (window.confirm('Вы точно хотите удалить эту запись?')) {
       dispatch(removeWorker(id))
     }

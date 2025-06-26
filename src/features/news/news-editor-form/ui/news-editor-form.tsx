@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { NewsEditorFormProps } from '../types'
 import { changingInputState } from '../../../../shared/lib/utils/changing-input-state'
 import { CustomForm } from '../../../../shared/ui/custom-form'
-import { FieldType, FormatType, News } from '../../../../shared/types'
+import { Field, FieldType, FormatType, News } from '../../../../shared/types'
 import { RoutePath } from '../../../../shared/types/route-path'
 import dayjs from 'dayjs'
 import {
@@ -60,7 +60,7 @@ export const NewsEditorForm = (props: NewsEditorFormProps) => {
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) =>
     changingInputState(e, setNewsData)
 
-  const fields = [
+  const fields: Field[] = [
     {
       label: 'Вовлекающий заголовок',
       type: FieldType.text,
@@ -68,6 +68,7 @@ export const NewsEditorForm = (props: NewsEditorFormProps) => {
       value: newsData.smallTitle,
       onChange: handleChangeInput,
       required: true,
+      needWarning: true,
     },
     {
       label: 'URl-адрес png иконки',
@@ -75,6 +76,7 @@ export const NewsEditorForm = (props: NewsEditorFormProps) => {
       name: 'smallImg',
       value: newsData.smallImg,
       onChange: handleChangeInput,
+      placeholder: 'в формате https://....',
     },
     {
       label: 'Заголовок',
@@ -83,6 +85,7 @@ export const NewsEditorForm = (props: NewsEditorFormProps) => {
       value: newsData.title,
       onChange: handleChangeInput,
       required: true,
+      needWarning: true,
     },
     {
       label: 'Описание',
@@ -91,6 +94,7 @@ export const NewsEditorForm = (props: NewsEditorFormProps) => {
       value: newsData.description,
       onChange: handleChangeInput,
       required: true,
+      needWarning: true,
     },
     {
       label: 'Дополнительная информация',
@@ -105,6 +109,7 @@ export const NewsEditorForm = (props: NewsEditorFormProps) => {
       name: 'img',
       value: newsData.img,
       onChange: handleChangeInput,
+      placeholder: 'в формате https://....',
     },
   ]
 

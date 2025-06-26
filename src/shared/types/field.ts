@@ -8,6 +8,7 @@ export interface Field {
   onChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void
   required?: boolean
   placeholder?: string
+  needWarning?: boolean
 }
 
 export enum FieldType {

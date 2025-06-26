@@ -49,8 +49,6 @@ export const App = () => {
       setUser(userFromDB)
       setValidUser(true)
     } else {
-      //TODO модальное окно
-      // alert('Введен неверный логин или пароль! Повторите попытку!')
       setValidUser(false)
     }
   }

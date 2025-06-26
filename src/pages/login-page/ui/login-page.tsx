@@ -23,6 +23,7 @@ export const LoginPage = (props: LoginPageProps) => {
       value: login,
       onChange: (e: ChangeEvent<HTMLInputElement>) => setLogin(e.target.value),
       required: true,
+      needWarning: true,
     },
     {
       label: 'Введите пароль',
@@ -32,6 +33,7 @@ export const LoginPage = (props: LoginPageProps) => {
       onChange: (e: ChangeEvent<HTMLInputElement>) =>
         setPassword(e.target.value),
       required: true,
+      needWarning: true,
     },
   ]
 

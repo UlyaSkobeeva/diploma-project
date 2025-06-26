@@ -6,6 +6,16 @@
   margin-bottom: 20px;
 }
 
+.birthday-slider__list :global(.slick-prev):before {
+  position: relative;
+  left: 5px;
+}
+
+.birthday-slider__list :global(.slick-next):before {
+  position: relative;
+  right: 5px;
+}
+
 .birthday-slider__item {
   height: 320px;
 
