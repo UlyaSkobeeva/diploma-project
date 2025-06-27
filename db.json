@@ -232,34 +232,14 @@
       "id": 8
     },
     {
-      "smallTitle": "dfdf",
+      "smallTitle": "новая новость",
       "smallImg": "",
-      "title": "dfdf",
-      "description": "dff",
-      "details": "dff",
+      "title": "заголовок",
+      "description": "описание",
+      "details": "",
       "img": "",
-      "date": "2025-05-29",
+      "date": "2025-06-27",
       "id": 9
-    },
-    {
-      "smallTitle": "dsd",
-      "smallImg": "",
-      "title": "dsd",
-      "description": "sdds",
-      "details": "",
-      "img": "",
-      "date": "2025-06-23",
-      "id": 10
-    },
-    {
-      "smallTitle": "авава",
-      "smallImg": "",
-      "title": "вававава",
-      "description": "вывы",
-      "details": "",
-      "img": "",
-      "date": "2025-06-26",
-      "id": 11
     }
   ],
   "idea": [
